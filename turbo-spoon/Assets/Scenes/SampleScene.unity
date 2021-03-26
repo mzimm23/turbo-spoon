@@ -326,8 +326,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   placedPrefab: {fileID: 3202241169458714187, guid: 1133733ae8e98914eb3b72c9248ec791, type: 3}
-  welcomePanel: {fileID: 0}
-  dismissButton: {fileID: 0}
   arCamera: {fileID: 1114040581}
   redButton: {fileID: 1130111063}
   greenButton: {fileID: 2124584266}

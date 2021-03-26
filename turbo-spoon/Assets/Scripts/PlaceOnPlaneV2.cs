@@ -8,13 +8,7 @@ public class PlaceOnPlaneV2 : MonoBehaviour
 {
     [SerializeField]
     private GameObject placedPrefab;
-
-    [SerializeField]
-    private GameObject welcomePanel;
-
-    [SerializeField]
-    private Button dismissButton;
-
+    
     [SerializeField]
     private Camera arCamera;
 
@@ -49,38 +43,28 @@ public class PlaceOnPlaneV2 : MonoBehaviour
     void Awake()
     {
         arRaycastManager = GetComponent<ARRaycastManager>();
-        dismissButton.onClick.AddListener(Dismiss);
-
-        if (redButton != null && greenButton != null && blueButton != null)
-        {
-            redButton.onClick.AddListener(() => ChangePrefabSelection("ARRed"));
-            greenButton.onClick.AddListener(() => ChangePrefabSelection("ARGreen"));
-            blueButton.onClick.AddListener(() => ChangePrefabSelection("ARBlue"));
-        }
+        
     }
 
-    private void ChangePrefabSelection(string name)
+    public void ChangePrefabSelection(GameObject gameObject)
     {
-        GameObject loadedGameObject = Resources.Load<GameObject>($"Prefabs/{name}");
+        GameObject loadedGameObject = gameObject;
         if (loadedGameObject != null)
         {
             PlacedPrefab = loadedGameObject;
-            Debug.Log($"Game object with name {name} was loaded");
+            Debug.Log($"Game object with name /" + gameObject.name + " was loaded");
         }
         else
         {
-            Debug.Log($"Unable to find a game object with name {name}");
+            Debug.Log($"Unable to find a game object with name /" + gameObject.name);
         }
     }
 
-    private void Dismiss() => welcomePanel.SetActive(false);
 
     void Update()
     {
         // do not capture events unless the welcome panel is hidden
-        if (welcomePanel.activeSelf)
-            return;
-
+       
         if (Input.touchCount > 0)
         {
             Touch touch = Input.GetTouch(0);
