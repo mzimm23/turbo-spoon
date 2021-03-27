@@ -52,7 +52,7 @@ public class PlaceOnPlaneV2 : MonoBehaviour
         if (loadedGameObject != null)
         {
             PlacedPrefab = loadedGameObject;
-            Debug.Log($"Game object with name /" + gameObject.name + " was loaded");
+            Debug.Log($"Game object with name /" + placedPrefab.name + " was loaded");
         }
         else
         {
@@ -63,7 +63,6 @@ public class PlaceOnPlaneV2 : MonoBehaviour
 
     void Update()
     {
-        // do not capture events unless the welcome panel is hidden
        
         if (Input.touchCount > 0)
         {
@@ -75,7 +74,7 @@ public class PlaceOnPlaneV2 : MonoBehaviour
             {
                 Ray ray = arCamera.ScreenPointToRay(touch.position);
                 RaycastHit hitObject;
-                if (Physics.Raycast(ray, out hitObject))
+                if (Physics.Raycast(ray, out hitObject)) //Check this, is hitObject set
                 {
                     lastSelectedObject = hitObject.transform.GetComponent<PlacementObject>();
                     if (lastSelectedObject != null)
