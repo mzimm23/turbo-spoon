@@ -53,6 +53,7 @@ public class PlaceOnPlaneV2 : MonoBehaviour
         {
             PlacedPrefab = loadedGameObject;
             Debug.Log($"Game object with name /" + placedPrefab.name + " was loaded");
+            UpdateLog($"Game object with name /" + placedPrefab.name + " was loaded");
         }
         else
         {
@@ -72,17 +73,21 @@ public class PlaceOnPlaneV2 : MonoBehaviour
 
             if (touch.phase == TouchPhase.Began)
             {
+                UpdateLog("Touch Began");
                 Ray ray = arCamera.ScreenPointToRay(touch.position);
                 RaycastHit hitObject;
                 if (Physics.Raycast(ray, out hitObject)) //Check this, is hitObject set
                 {
+                    UpdateLog("Hit object: "+hitObject.collider.ToString());
                     lastSelectedObject = hitObject.transform.GetComponent<PlacementObject>();
+                    UpdateLog("Last object selected is: "+lastSelectedObject.ToString());
                     if (lastSelectedObject != null)
                     {
                         PlacementObject[] allOtherObjects = FindObjectsOfType<PlacementObject>();
                         foreach (PlacementObject placementObject in allOtherObjects)
                         {
                             placementObject.Selected = placementObject == lastSelectedObject;
+                            UpdateLog("All objects "+allOtherObjects.ToString());
                         }
                     }
                 }
@@ -90,6 +95,7 @@ public class PlaceOnPlaneV2 : MonoBehaviour
 
             if (touch.phase == TouchPhase.Ended)
             {
+                UpdateLog("Touch Ended");
                 lastSelectedObject.Selected = false;
             }
         }
@@ -106,10 +112,16 @@ public class PlaceOnPlaneV2 : MonoBehaviour
             {
                 if (lastSelectedObject.Selected)
                 {
+                    UpdateLog("Trying to update position of "+lastSelectedObject.ToString());
                     lastSelectedObject.transform.position = hitPose.position;
                     lastSelectedObject.transform.rotation = hitPose.rotation;
                 }
             }
         }
+    }
+    [SerializeField] Text logText;
+    public void UpdateLog(string text)
+    {
+        logText.text += "\n"+text;
     }
 }
