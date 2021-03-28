@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8753131119598480411}
   - component: {fileID: 2960562178073840013}
+  - component: {fileID: 8323345136667350809}
   m_Layer: 0
   m_Name: Art2
   m_TagString: PlacementObject
@@ -49,6 +50,19 @@ MonoBehaviour:
   OverlayText: {fileID: 0}
   canvasComponent: {fileID: 0}
   OverlayDisplayText: 
+--- !u!65 &8323345136667350809
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3202241169458714187}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.5271888, y: 0.07282052, z: 1.5372355}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &230756961385839448
 PrefabInstance:
   m_ObjectHideFlags: 0
