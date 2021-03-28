@@ -35,10 +35,10 @@ RenderSettings:
   m_DefaultReflectionMode: 0
   m_DefaultReflectionResolution: 128
   m_ReflectionBounces: 1
-  m_ReflectionIntensity: 0.75
+  m_ReflectionIntensity: 0.5
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.38113493, g: 0.4233547, b: 0.4945423, a: 0.75}
+  m_IndirectSpecularColor: {r: 0.3133405, g: 0.34899747, b: 0.40911946, a: 0.5}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -276,7 +276,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1760703bbd54c04488a8d10600262ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_PlanePrefab: {fileID: 9176491814346073177, guid: d74d7fc585795424eb0246f8564d2038, type: 3}
+  m_PlanePrefab: {fileID: 0}
   m_DetectionMode: 2
 --- !u!114 &40919620
 MonoBehaviour:
