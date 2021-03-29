@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Reflection;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -10,7 +9,7 @@ public class PlaceOnPlaneV2 : MonoBehaviour
 {
     [SerializeField]
     private GameObject placedPrefab;
-    
+
     [SerializeField]
     private Camera arCamera;
 
@@ -29,7 +28,7 @@ public class PlaceOnPlaneV2 : MonoBehaviour
     [SerializeField]
     private Button redButton, greenButton, blueButton;
 
-    Pose initialHit;
+    Vector3 initialHit;
 
     private GameObject PlacedPrefab
     {
@@ -47,12 +46,12 @@ public class PlaceOnPlaneV2 : MonoBehaviour
     void Awake()
     {
         arRaycastManager = GetComponent<ARRaycastManager>();
-        
+
     }
 
     public void ChangePrefabSelection(GameObject gameObject)
     {
-        UpdateLog("Trying to change object to "+gameObject.name);
+        UpdateLog("Trying to change object to " + gameObject.name);
         GameObject loadedGameObject = gameObject;
         if (loadedGameObject != null)
         {
@@ -69,7 +68,7 @@ public class PlaceOnPlaneV2 : MonoBehaviour
 
     void Update()
     {
-       
+
         if (Input.touchCount > 0)
         {
             Touch touch = Input.GetTouch(0);
@@ -80,15 +79,18 @@ public class PlaceOnPlaneV2 : MonoBehaviour
 
             if (touch.phase == TouchPhase.Began)
             {
+
                 UpdateLog("Touch Began");
-                initialHit = hits[0].pose;
                 Ray ray = arCamera.ScreenPointToRay(touch.position);
+
+
                 RaycastHit hitObject;
                 if (Physics.Raycast(ray, out hitObject)) //Check this, is hitObject set
                 {
-                    UpdateLog("- Hit object: "+hitObject.collider.ToString());
+                    initialHit = hitObject.point;
+                    UpdateLog("- Hit object: " + hitObject.collider.ToString());
                     lastSelectedObject = hitObject.transform.GetComponent<PlacementObject>();
-                    UpdateLog("     - Last object selected is: "+lastSelectedObject.ToString());
+                    UpdateLog("     - Last object selected is: " + lastSelectedObject.ToString());
                     if (lastSelectedObject != null)
                     {
                         PlacementObject[] allOtherObjects = FindObjectsOfType<PlacementObject>();
@@ -121,7 +123,7 @@ public class PlaceOnPlaneV2 : MonoBehaviour
                 if (lastSelectedObject.Selected)
                 {
                     //UpdateLog("- Trying to update position of "+lastSelectedObject.ToString());
-                    lastSelectedObject.transform.position = lastSelectedObject.transform.position + (hitPose.position - initialHit.position);
+                    lastSelectedObject.transform.position = lastSelectedObject.transform.position + (hitPose.position - initialHit);
                     lastSelectedObject.transform.rotation = hitPose.rotation;
                 }
             }
@@ -130,7 +132,7 @@ public class PlaceOnPlaneV2 : MonoBehaviour
     [SerializeField] Text logText;
     public void UpdateLog(string text)
     {
-        logText.text += "\n"+text;
+        logText.text += "\n" + text;
     }
 
     bool IsPointerOverUI(Touch touch)
