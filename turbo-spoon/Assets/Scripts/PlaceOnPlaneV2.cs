@@ -123,7 +123,8 @@ public class PlaceOnPlaneV2 : MonoBehaviour
                 if (lastSelectedObject.Selected)
                 {
                     //UpdateLog("- Trying to update position of "+lastSelectedObject.ToString());
-                    lastSelectedObject.transform.position = lastSelectedObject.transform.position + (hitPose.position - initialHit);
+                    //lastSelectedObject.transform.position = lastSelectedObject.transform.position + (hitPose.position - initialHit);
+                    lastSelectedObject.transform.position = hitPose.position;
                     lastSelectedObject.transform.rotation = hitPose.rotation;
                 }
             }
