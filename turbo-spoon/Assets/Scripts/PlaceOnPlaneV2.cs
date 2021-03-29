@@ -48,6 +48,7 @@ public class PlaceOnPlaneV2 : MonoBehaviour
 
     public void ChangePrefabSelection(GameObject gameObject)
     {
+        UpdateLog("Trying to change object to "+gameObject.name);
         GameObject loadedGameObject = gameObject;
         if (loadedGameObject != null)
         {
@@ -87,7 +88,7 @@ public class PlaceOnPlaneV2 : MonoBehaviour
                         foreach (PlacementObject placementObject in allOtherObjects)
                         {
                             placementObject.Selected = placementObject == lastSelectedObject;
-                            UpdateLog("         - All objects "+allOtherObjects.ToString());
+                            //UpdateLog("         - All objects "+allOtherObjects.ToString());
                         }
                     }
                 }

@@ -1710,7 +1710,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1d849695c2a3e24487f01d90d6f4bf9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  container: {fileID: 572084756}
+  containers:
+  - {fileID: 572084756}
+  - {fileID: 1878805461}
 --- !u!1 &1816287337
 GameObject:
   m_ObjectHideFlags: 0

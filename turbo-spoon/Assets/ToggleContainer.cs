@@ -1,22 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using UnityEngine;
 
 public class ToggleContainer : MonoBehaviour
 {
 
     [SerializeField]
-    public GameObject container;
+    public GameObject[] containers;
 
     public void ToggleActive()
     {
-        if (container.activeSelf == true)
+        foreach(GameObject obj in containers)
         {
-            container.SetActive(false);
+            if (obj.activeSelf == true)
+            {
+                obj.SetActive(false);
+            }
+            else
+            {
+                obj.SetActive(true);
+            }
         }
-        else
-        {
-            container.SetActive(true);
-        }
+        
     }
 }
