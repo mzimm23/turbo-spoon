@@ -53,6 +53,7 @@ public class PlaceOnPlaneV2 : MonoBehaviour
         {
             PlacedPrefab = loadedGameObject;
             Debug.Log($"Game object with name /" + placedPrefab.name + " was loaded");
+            UpdateLog($"Game object with name /" + placedPrefab.name + " was loaded");
         }
         else
         {
