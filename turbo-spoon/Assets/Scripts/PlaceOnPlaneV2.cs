@@ -29,6 +29,8 @@ public class PlaceOnPlaneV2 : MonoBehaviour
     [SerializeField]
     private Button redButton, greenButton, blueButton;
 
+    Pose initialHit;
+
     private GameObject PlacedPrefab
     {
         get
@@ -79,6 +81,7 @@ public class PlaceOnPlaneV2 : MonoBehaviour
             if (touch.phase == TouchPhase.Began)
             {
                 UpdateLog("Touch Began");
+                initialHit = hits[0].pose;
                 Ray ray = arCamera.ScreenPointToRay(touch.position);
                 RaycastHit hitObject;
                 if (Physics.Raycast(ray, out hitObject)) //Check this, is hitObject set
@@ -118,7 +121,7 @@ public class PlaceOnPlaneV2 : MonoBehaviour
                 if (lastSelectedObject.Selected)
                 {
                     //UpdateLog("- Trying to update position of "+lastSelectedObject.ToString());
-                    lastSelectedObject.transform.position = hitPose.position;
+                    lastSelectedObject.transform.position = lastSelectedObject.transform.position + (hitPose.position - initialHit.position);
                     lastSelectedObject.transform.rotation = hitPose.rotation;
                 }
             }
