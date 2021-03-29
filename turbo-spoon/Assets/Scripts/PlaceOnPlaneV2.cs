@@ -1,5 +1,7 @@
 using System.Collections.Generic;
+using System.Reflection;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using UnityEngine.XR.ARFoundation;
 
@@ -70,6 +72,8 @@ public class PlaceOnPlaneV2 : MonoBehaviour
         {
             Touch touch = Input.GetTouch(0);
 
+            if (IsPointerOverUI(touch)) return;
+
             touchPosition = touch.position;
 
             if (touch.phase == TouchPhase.Began)
@@ -124,5 +128,14 @@ public class PlaceOnPlaneV2 : MonoBehaviour
     public void UpdateLog(string text)
     {
         logText.text += "\n"+text;
+    }
+
+    bool IsPointerOverUI(Touch touch)
+    {
+        PointerEventData eventData = new PointerEventData(EventSystem.current);
+        eventData.position = new Vector2(touch.position.x, touch.position.y);
+        List<RaycastResult> results = new List<RaycastResult>();
+        EventSystem.current.RaycastAll(eventData, results);
+        return results.Count > 0;
     }
 }
