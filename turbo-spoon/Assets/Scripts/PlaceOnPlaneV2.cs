@@ -3,9 +3,11 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using UnityEngine.XR.ARFoundation;
+using UnityEngine.XR.Interaction.Toolkit.AR;
+
 
 [RequireComponent(typeof(ARRaycastManager))]
-public class PlaceOnPlaneV2 : MonoBehaviour
+public class PlaceOnPlaneV2 : ARBaseGestureInteractable
 {
     [SerializeField]
     private GameObject placedPrefab;
@@ -81,33 +83,35 @@ public class PlaceOnPlaneV2 : MonoBehaviour
             {
 
                 UpdateLog("Touch Began");
-                Ray ray = arCamera.ScreenPointToRay(touch.position);
+            }// <-- remove this too
+            /*
+            Ray ray = arCamera.ScreenPointToRay(touch.position);
 
 
-                RaycastHit hitObject;
-                if (Physics.Raycast(ray, out hitObject)) //Check this, is hitObject set
+            RaycastHit hitObject;
+            if (Physics.Raycast(ray, out hitObject)) //Check this, is hitObject set
+            {
+                initialHit = hitObject.point;
+                UpdateLog("- Hit object: " + hitObject.collider.ToString());
+                lastSelectedObject = hitObject.transform.GetComponent<PlacementObject>();
+                UpdateLog("     - Last object selected is: " + lastSelectedObject.ToString());
+                if (lastSelectedObject != null)
                 {
-                    initialHit = hitObject.point;
-                    UpdateLog("- Hit object: " + hitObject.collider.ToString());
-                    lastSelectedObject = hitObject.transform.GetComponent<PlacementObject>();
-                    UpdateLog("     - Last object selected is: " + lastSelectedObject.ToString());
-                    if (lastSelectedObject != null)
+                    PlacementObject[] allOtherObjects = FindObjectsOfType<PlacementObject>();
+                    foreach (PlacementObject placementObject in allOtherObjects)
                     {
-                        PlacementObject[] allOtherObjects = FindObjectsOfType<PlacementObject>();
-                        foreach (PlacementObject placementObject in allOtherObjects)
-                        {
-                            placementObject.Selected = placementObject == lastSelectedObject;
-                            //UpdateLog("         - All objects "+allOtherObjects.ToString());
-                        }
+                        placementObject.Selected = placementObject == lastSelectedObject;
+                        //UpdateLog("         - All objects "+allOtherObjects.ToString());
                     }
                 }
             }
+        }
 
-            if (touch.phase == TouchPhase.Ended)
-            {
-                UpdateLog("Touch Ended");
-                lastSelectedObject.Selected = false;
-            }
+        if (touch.phase == TouchPhase.Ended)
+        {
+            UpdateLog("Touch Ended");
+            lastSelectedObject.Selected = false;
+        }*/
         }
 
         if (arRaycastManager.Raycast(touchPosition, hits, UnityEngine.XR.ARSubsystems.TrackableType.PlaneWithinPolygon))
@@ -130,12 +134,13 @@ public class PlaceOnPlaneV2 : MonoBehaviour
             }
         }
     }
+
     [SerializeField] Text logText;
     public void UpdateLog(string text)
     {
         logText.text += "\n" + text;
     }
-
+    
     bool IsPointerOverUI(Touch touch)
     {
         PointerEventData eventData = new PointerEventData(EventSystem.current);
@@ -144,4 +149,5 @@ public class PlaceOnPlaneV2 : MonoBehaviour
         EventSystem.current.RaycastAll(eventData, results);
         return results.Count > 0;
     }
+   
 }
