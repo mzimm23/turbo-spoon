@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - PlacementObject
+  - Plane
   layers:
   - Default
   - TransparentFX

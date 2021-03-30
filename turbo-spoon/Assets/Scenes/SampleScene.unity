@@ -620,8 +620,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: 400}
-  m_SizeDelta: {x: 0, y: 300}
+  m_AnchoredPosition: {x: 0, y: 275}
+  m_SizeDelta: {x: 0, y: 550}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &572084758
 MonoBehaviour:
@@ -1552,11 +1552,11 @@ RectTransform:
   m_Father: {fileID: 572084757}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.5}
-  m_AnchorMax: {x: 0, y: 0.5}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 300}
-  m_Pivot: {x: 0, y: 0.5}
+  m_Pivot: {x: 0, y: 1}
 --- !u!114 &1581410036
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1574,7 +1574,7 @@ MonoBehaviour:
     m_Right: 20
     m_Top: 20
     m_Bottom: 20
-  m_ChildAlignment: 3
+  m_ChildAlignment: 0
   m_Spacing: 20
   m_ChildForceExpandWidth: 0
   m_ChildForceExpandHeight: 0
@@ -1854,11 +1854,11 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1746233324}
         m_TargetAssemblyTypeName: ToggleContainer, Assembly-CSharp
-        m_MethodName: ToggleActive
-        m_Mode: 1
+        m_MethodName: TweenDown
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 572084756}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1866,11 +1866,11 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1746233324}
         m_TargetAssemblyTypeName: ToggleContainer, Assembly-CSharp
-        m_MethodName: TweenDown
-        m_Mode: 2
+        m_MethodName: ChangeButtonImage
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 572084756}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1896,7 +1896,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 2f331e95956932f49a2becbc01ff1ca3, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1930,6 +1930,11 @@ MonoBehaviour:
   containers:
   - {fileID: 9176491814346073177, guid: ecf8ce7de6ee9194aa373e9334fd878b, type: 3}
   myCanvas: {fileID: 1421150395}
+  plane: {fileID: 0}
+  button: {fileID: 1746233321}
+  buttonStates:
+  - {fileID: 21300000, guid: 2f331e95956932f49a2becbc01ff1ca3, type: 3}
+  - {fileID: 21300000, guid: 0bf945f1f2a1c4d4489a455d50d2f2dd, type: 3}
 --- !u!1 &1816287337
 GameObject:
   m_ObjectHideFlags: 0

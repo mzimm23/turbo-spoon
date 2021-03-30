@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ToggleContainer : MonoBehaviour
 {
@@ -15,11 +16,18 @@ public class ToggleContainer : MonoBehaviour
     [SerializeField]
     GameObject myCanvas;
 
-    private bool isScrollContOnScreen = true;
+    private bool buttonPressed = true;
     private float scrollContStartY;
     float screenBottom;
 
     public GameObject plane;
+
+    [SerializeField]
+    public Button button;
+
+    [SerializeField]
+    public Sprite[] buttonStates;
+
 
 
 
@@ -53,19 +61,24 @@ public class ToggleContainer : MonoBehaviour
     public void TweenDown(GameObject obj)
     {
         float tweenTime = 0.25f;
-        if (isScrollContOnScreen == true)
+        if (buttonPressed == true)
         {
-            isScrollContOnScreen = false;
+            buttonPressed = false;
+            button.image.sprite = buttonStates[1];
             LeanTween.cancel(obj);
-            LeanTween.moveLocalY(obj, (screenBottom - 200), tweenTime);
+            LeanTween.moveLocalY(obj, (screenBottom - 300), tweenTime);
         }
         else
         {
-            isScrollContOnScreen = true;
+            buttonPressed = true;
+            button.image.sprite = buttonStates[0];
             LeanTween.cancel(obj);
             LeanTween.moveLocalY(obj, scrollContStartY, tweenTime);
         }
     }
+
+   
+
 
     private void Start()
     {

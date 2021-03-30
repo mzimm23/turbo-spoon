@@ -79,12 +79,10 @@ public class PlaceOnPlaneV2 : MonoBehaviour
                 UpdateLog("Touch Began");
                 Ray ray = arCamera.ScreenPointToRay(touch.position);
                 RaycastHit hitObject;
-                if (Physics.Raycast(ray, out hitObject)) //Check this, is hitObject set
+                if (Physics.Raycast(ray, out hitObject))
                 {
                     initialHit = hitObject.point;
-                    UpdateLog("- Hit object: " + hitObject.collider.ToString());
                     lastSelectedObject = hitObject.transform.GetComponent<PlacementObject>();
-                    UpdateLog("     - Last object selected is: " + lastSelectedObject.ToString());
                     if (lastSelectedObject != null)
                     {
                         PlacementObject[] allOtherObjects = FindObjectsOfType<PlacementObject>();
