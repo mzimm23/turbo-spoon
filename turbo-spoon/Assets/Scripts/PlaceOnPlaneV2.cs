@@ -3,7 +3,6 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using UnityEngine.XR.ARFoundation;
-using UnityEngine.XR.Interaction.Toolkit.AR;
 
 
 [RequireComponent(typeof(ARRaycastManager))]

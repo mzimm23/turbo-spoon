@@ -22,6 +22,5 @@ public class ToggleContainer : MonoBehaviour
                 obj.SetActive(true);
             }
         }
-        
     }
 }

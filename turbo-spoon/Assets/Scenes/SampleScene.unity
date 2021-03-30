@@ -1013,34 +1013,46 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_InteractionManager: {fileID: 0}
   m_InteractionLayerMask:
-    serializedVersion: 2
     m_Bits: 4294967295
   m_AttachTransform: {fileID: 0}
   m_StartingSelectedInteractable: {fileID: 0}
   m_HoverEntered:
     m_PersistentCalls:
       m_Calls: []
+    m_CallsDirty: 1
   m_HoverExited:
     m_PersistentCalls:
       m_Calls: []
+    m_CallsDirty: 1
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls: []
+    m_CallsDirty: 1
   m_SelectExited:
     m_PersistentCalls:
       m_Calls: []
+    m_CallsDirty: 1
+  m_AllowHover: 1
+  m_AllowSelect: 1
+  m_IsPerformingManualInteraction: 0
+  <selectTarget>k__BackingField: {fileID: 0}
+  m_RegisteredInteractionManager: {fileID: 0}
   m_OnHoverEntered:
     m_PersistentCalls:
       m_Calls: []
+    m_CallsDirty: 1
   m_OnHoverExited:
     m_PersistentCalls:
       m_Calls: []
+    m_CallsDirty: 1
   m_OnSelectEntered:
     m_PersistentCalls:
       m_Calls: []
+    m_CallsDirty: 1
   m_OnSelectExited:
     m_PersistentCalls:
       m_Calls: []
+    m_CallsDirty: 1
   m_ARSessionOrigin: {fileID: 40919615}
 --- !u!1 &1130111061
 GameObject:
@@ -1904,7 +1916,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   containers:
   - {fileID: 572084756}
-  - {fileID: 0}
+  - {fileID: 9176491814346073177, guid: ecf8ce7de6ee9194aa373e9334fd878b, type: 3}
 --- !u!1 &1816287337
 GameObject:
   m_ObjectHideFlags: 0
