@@ -1301,7 +1301,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1080, y: 1920}
@@ -1864,6 +1864,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1746233324}
+        m_TargetAssemblyTypeName: ToggleContainer, Assembly-CSharp
+        m_MethodName: TweenDown
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 572084756}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1746233322
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1914,9 +1926,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1d849695c2a3e24487f01d90d6f4bf9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scrollContainer: {fileID: 572084756}
   containers:
-  - {fileID: 572084756}
   - {fileID: 9176491814346073177, guid: ecf8ce7de6ee9194aa373e9334fd878b, type: 3}
+  myCanvas: {fileID: 1421150395}
 --- !u!1 &1816287337
 GameObject:
   m_ObjectHideFlags: 0
