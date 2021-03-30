@@ -70,67 +70,57 @@ public class PlaceOnPlaneV2 : MonoBehaviour
 
     void Update()
     {
-
         if (Input.touchCount > 0)
         {
             Touch touch = Input.GetTouch(0);
-
             if (IsPointerOverUI(touch)) return;
-
             touchPosition = touch.position;
-
             if (touch.phase == TouchPhase.Began)
             {
-
                 UpdateLog("Touch Began");
-           
-            
-            Ray ray = arCamera.ScreenPointToRay(touch.position);
-
-
-            RaycastHit hitObject;
-            if (Physics.Raycast(ray, out hitObject)) //Check this, is hitObject set
-            {
-                initialHit = hitObject.point;
-                UpdateLog("- Hit object: " + hitObject.collider.ToString());
-                lastSelectedObject = hitObject.transform.GetComponent<PlacementObject>();
-                UpdateLog("     - Last object selected is: " + lastSelectedObject.ToString());
-                if (lastSelectedObject != null)
+                Ray ray = arCamera.ScreenPointToRay(touch.position);
+                RaycastHit hitObject;
+                if (Physics.Raycast(ray, out hitObject)) //Check this, is hitObject set
                 {
-                    PlacementObject[] allOtherObjects = FindObjectsOfType<PlacementObject>();
-                    foreach (PlacementObject placementObject in allOtherObjects)
+                    initialHit = hitObject.point;
+                    UpdateLog("- Hit object: " + hitObject.collider.ToString());
+                    lastSelectedObject = hitObject.transform.GetComponent<PlacementObject>();
+                    UpdateLog("     - Last object selected is: " + lastSelectedObject.ToString());
+                    if (lastSelectedObject != null)
                     {
-                        placementObject.Selected = placementObject == lastSelectedObject;
-                        //UpdateLog("         - All objects "+allOtherObjects.ToString());
+                        PlacementObject[] allOtherObjects = FindObjectsOfType<PlacementObject>();
+                        foreach (PlacementObject placementObject in allOtherObjects)
+                        {
+                            placementObject.Selected = placementObject == lastSelectedObject;
+                        }
                     }
                 }
-            }
-        }
+            }   
             if (touch.phase == TouchPhase.Ended)
             {
                 UpdateLog("Touch Ended");
                 lastSelectedObject.Selected = false;
             }
-        }
-
-        if (arRaycastManager.Raycast(touchPosition, hits, UnityEngine.XR.ARSubsystems.TrackableType.PlaneWithinPolygon))
-        {
-            Pose hitPose = hits[0].pose;
-
-            if (lastSelectedObject == null)
+            //Moved this inside v
+            if (arRaycastManager.Raycast(touchPosition, hits, UnityEngine.XR.ARSubsystems.TrackableType.PlaneWithinPolygon))
             {
-                lastSelectedObject = Instantiate(placedPrefab, hitPose.position, hitPose.rotation).GetComponent<PlacementObject>();
-            }
-            else
-            {
-                if (lastSelectedObject.Selected)
+                Pose hitPose = hits[0].pose;
+                if (lastSelectedObject == null)
                 {
-                    //UpdateLog("- Trying to update position of "+lastSelectedObject.ToString());
-                    //lastSelectedObject.transform.position = lastSelectedObject.transform.position + (hitPose.position - initialHit);
-                    lastSelectedObject.transform.position = hitPose.position;
-                    lastSelectedObject.transform.rotation = hitPose.rotation;
+                    lastSelectedObject = Instantiate(placedPrefab, hitPose.position, hitPose.rotation).GetComponent<PlacementObject>();
+                }
+                else
+                {
+                    if (lastSelectedObject.Selected)
+                    {
+                        //UpdateLog("- Trying to update position of "+lastSelectedObject.ToString());
+                        //lastSelectedObject.transform.position = lastSelectedObject.transform.position + (hitPose.position - initialHit);
+                        lastSelectedObject.transform.position = hitPose.position;
+                        lastSelectedObject.transform.rotation = hitPose.rotation;
+                    }
                 }
             }
+
         }
     }
 
