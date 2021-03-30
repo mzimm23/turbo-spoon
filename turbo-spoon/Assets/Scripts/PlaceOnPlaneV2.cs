@@ -7,7 +7,7 @@ using UnityEngine.XR.Interaction.Toolkit.AR;
 
 
 [RequireComponent(typeof(ARRaycastManager))]
-public class PlaceOnPlaneV2 : ARBaseGestureInteractable
+public class PlaceOnPlaneV2 : MonoBehaviour
 {
     [SerializeField]
     private GameObject placedPrefab;
@@ -83,8 +83,8 @@ public class PlaceOnPlaneV2 : ARBaseGestureInteractable
             {
 
                 UpdateLog("Touch Began");
-            }// <-- remove this too
-            /*
+           
+            
             Ray ray = arCamera.ScreenPointToRay(touch.position);
 
 
@@ -106,12 +106,11 @@ public class PlaceOnPlaneV2 : ARBaseGestureInteractable
                 }
             }
         }
-
-        if (touch.phase == TouchPhase.Ended)
-        {
-            UpdateLog("Touch Ended");
-            lastSelectedObject.Selected = false;
-        }*/
+            if (touch.phase == TouchPhase.Ended)
+            {
+                UpdateLog("Touch Ended");
+                lastSelectedObject.Selected = false;
+            }
         }
 
         if (arRaycastManager.Raycast(touchPosition, hits, UnityEngine.XR.ARSubsystems.TrackableType.PlaneWithinPolygon))
