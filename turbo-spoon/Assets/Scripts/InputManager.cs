@@ -11,6 +11,7 @@ public class InputManager : ARBaseGestureInteractable
     [SerializeField] private Camera arCam;
     [SerializeField] private ARRaycastManager _raycastManager;
     [SerializeField] public GameObject obj;
+    private Vector2 touchPosition = default;
 
     private List<ARRaycastHit> hits = new List<ARRaycastHit>();
 
@@ -22,12 +23,12 @@ public class InputManager : ARBaseGestureInteractable
     {
         if (gesture.targetObject == null)
         {
-            UpdateLog("Can manipulate "+gesture.targetObject.name);
+            UpdateLog("Nothing Was Collided With");
             return true;
         }
         else
         {
-            UpdateLog("Nothing to manipulate");
+            UpdateLog("Gesture Collided With Object:"+gesture.targetObject.name);
             return false;
         }
     }
@@ -56,7 +57,17 @@ public class InputManager : ARBaseGestureInteractable
 
     private void FixedUpdate()
     {
-        
+        if (Input.touchCount > 0)
+        {
+            Touch touch = Input.GetTouch(0);
+
+            touchPosition = touch.position;
+
+            if (GestureTransformationUtility.Raycast(touchPosition, hits, UnityEngine.XR.ARSubsystems.TrackableType.PlaneWithinPolygon))
+            {
+                pose = hits[0].pose;
+            }
+        }
     }
 
     bool IsPointerOverUI(TapGesture touch)
@@ -89,4 +100,6 @@ public class InputManager : ARBaseGestureInteractable
             Debug.Log($"Unable to find a game object with name " + gameObject.name);
         }
     }
+
+    
 }

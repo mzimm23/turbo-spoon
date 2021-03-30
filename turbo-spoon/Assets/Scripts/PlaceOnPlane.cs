@@ -16,7 +16,7 @@ public class PlaceOnPlane : MonoBehaviour
     private Camera arCamera;
     [SerializeField]
     private int maxPrefabSpawnCount = 0;
-    private int placedPrefabCount;
+    //private int placedPrefabCount;
 
     static List<ARRaycastHit> s_Hits = new List<ARRaycastHit>();
 
@@ -103,7 +103,7 @@ public class PlaceOnPlane : MonoBehaviour
     {
         spawnedObject = Instantiate(m_ObjectToPlace, hitPose.position, hitPose.rotation);
         placedPrefabList.Add(spawnedObject);
-        placedPrefabCount++;
+        //placedPrefabCount++;
     }
 
     public void EnnableMenu()
