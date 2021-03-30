@@ -18,19 +18,9 @@ public class InputManager : ARBaseGestureInteractable
     private Touch touch;
     private Pose pose;
 
-
     protected override bool CanStartManipulationForGesture(TapGesture gesture)
     {
-        if (gesture.targetObject == null)
-        {
-            UpdateLog("Nothing Was Collided With");
-            return true;
-        }
-        else
-        {
-            UpdateLog("Gesture Collided With Object:"+gesture.targetObject.name);
-            return false;
-        }
+        return base.CanStartManipulationForGesture(gesture);
     }
 
     protected override void OnEndManipulation(TapGesture gesture)
@@ -43,7 +33,6 @@ public class InputManager : ARBaseGestureInteractable
         if(GestureTransformationUtility.Raycast(gesture.startPosition, hits, UnityEngine.XR.ARSubsystems.TrackableType.PlaneWithinPolygon))
         {
             UpdateLog("Trying to place: "+obj);
-            pose = hits[0].pose;
             GameObject placedObject = Instantiate(obj, pose.position, pose.rotation);
             /*
             var anchorObject = new GameObject("PlacementAnchor");
