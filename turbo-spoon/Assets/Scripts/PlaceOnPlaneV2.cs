@@ -69,6 +69,7 @@ public class PlaceOnPlaneV2 : MonoBehaviour
 
     void Update()
     {
+        
         if (Input.touchCount > 0)
         {
             Touch touch = Input.GetTouch(0);
@@ -86,6 +87,7 @@ public class PlaceOnPlaneV2 : MonoBehaviour
                     lastSelectedObject = hitObject.transform.GetComponent<PlacementObject>();
                     if (lastSelectedObject != null)
                     {
+                        text.text = "The current selected object is: " + lastSelectedObject.name;
                         PlacementObject[] allOtherObjects = FindObjectsOfType<PlacementObject>();
                         foreach (PlacementObject placementObject in allOtherObjects)
                         {
@@ -125,9 +127,10 @@ public class PlaceOnPlaneV2 : MonoBehaviour
             }
 
         }
+        text.text = "The current selected object is: " + lastSelectedObject.name;
     }
 
-    [SerializeField] Text logText;
+    [SerializeField] Text logText, text;
     public void UpdateLog(string text)
     {
         logText.text += "\n" + text;
