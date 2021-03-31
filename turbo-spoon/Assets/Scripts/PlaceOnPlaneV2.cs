@@ -144,5 +144,11 @@ public class PlaceOnPlaneV2 : MonoBehaviour
         EventSystem.current.RaycastAll(eventData, results);
         return results.Count > 0;
     }
-   
+
+    public void DeleteSelected()
+    {
+        Destroy(lastSelectedObject);
+        lastSelectedObject = null;
+    }
+
 }
