@@ -46,7 +46,7 @@ public class ToggleContainer : MonoBehaviour
         }
     }
 
-    public void togglePlane()
+    public void TogglePlane()
     {
         if (plane.activeSelf == true)
         {

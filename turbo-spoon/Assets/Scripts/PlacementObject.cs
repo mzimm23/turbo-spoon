@@ -46,6 +46,21 @@ public class PlacementObject : MonoBehaviour
     [SerializeField]
     private string OverlayDisplayText;
 
+    [SerializeField]
+    public GameObject selectedIndicator;
+
+    public void ToggleSelectedIndicator()
+    {
+        if (selectedIndicator.activeSelf == true)
+        {
+            selectedIndicator.SetActive(false);
+        }
+        else
+        {
+            selectedIndicator.SetActive(true);
+        }
+    }
+
     public void SetOverlayText(string text)
     {
         if (OverlayText != null)
@@ -75,5 +90,17 @@ public class PlacementObject : MonoBehaviour
         canvasComponent?.gameObject.SetActive(IsSelected);
     }
 
-   
+    private void Update()
+    {
+        if(IsSelected == true)
+        {
+            selectedIndicator.SetActive(true);
+        }
+        else
+        {
+            selectedIndicator.SetActive(false);
+        }
+    }
+
+
 }
