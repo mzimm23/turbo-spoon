@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.XR.ARFoundation;
 
 public class ToggleContainer : MonoBehaviour
 {
@@ -84,6 +85,6 @@ public class ToggleContainer : MonoBehaviour
     {
         scrollContStartY = scrollContainer.transform.localPosition.y;
         screenBottom = myCanvas.GetComponent<RectTransform>().rect.top;
-        plane = GameObject.FindGameObjectWithTag("Plane");
+        plane = GameObject.FindObjectOfType<ARPlaneManager>().planePrefab;
     }
 }
