@@ -60,7 +60,7 @@ public class ToggleContainer : MonoBehaviour
 
     public void TweenDown(GameObject obj)
     {
-        float tweenTime = 0.25f;
+        float tweenTime = 0.20f;
         if (buttonPressed == true)
         {
             buttonPressed = false;

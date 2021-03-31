@@ -81,6 +81,7 @@ public class PlaceOnPlaneV2 : MonoBehaviour
                 RaycastHit hitObject;
                 if (Physics.Raycast(ray, out hitObject))
                 {
+                    UpdateLog("Hit " + hitObject.ToString());
                     initialHit = hitObject.point;
                     lastSelectedObject = hitObject.transform.GetComponent<PlacementObject>();
                     if (lastSelectedObject != null)
@@ -94,6 +95,7 @@ public class PlaceOnPlaneV2 : MonoBehaviour
                 }
                 else
                 {
+                    UpdateLog("Deselected "+lastSelectedObject);
                     lastSelectedObject.Selected = false;
                 }
             }   
