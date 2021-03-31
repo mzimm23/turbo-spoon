@@ -147,7 +147,7 @@ public class PlaceOnPlaneV2 : MonoBehaviour
 
     public void DeleteSelected()
     {
-        Destroy(lastSelectedObject);
+        Destroy(lastSelectedObject.gameObject);
         lastSelectedObject = null;
     }
 
