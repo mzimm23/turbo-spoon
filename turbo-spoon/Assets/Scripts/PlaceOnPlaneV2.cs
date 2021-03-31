@@ -92,11 +92,15 @@ public class PlaceOnPlaneV2 : MonoBehaviour
                         }
                     }
                 }
+                else
+                {
+                    lastSelectedObject.Selected = false;
+                }
             }   
             if (touch.phase == TouchPhase.Ended)
             {
                 UpdateLog("Touch Ended");
-                lastSelectedObject.Selected = false;
+                //lastSelectedObject.Selected = false; original location
             }
             //Moved this inside v
             if (arRaycastManager.Raycast(touchPosition, hits, UnityEngine.XR.ARSubsystems.TrackableType.PlaneWithinPolygon))
