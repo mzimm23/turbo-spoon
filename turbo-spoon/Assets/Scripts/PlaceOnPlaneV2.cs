@@ -84,6 +84,12 @@ public class PlaceOnPlaneV2 : MonoBehaviour
                 {
                     UpdateLog("Hit " + hitObject.ToString());
                     initialHit = hitObject.point;
+                    if(lastSelectedObject == hitObject.transform.GetComponent<PlacementObject>()) //This is experimantal. It is meant to de-select an object that is selected once clicked again
+                    {
+                        lastSelectedObject.Selected = false;
+                        lastSelectedObject = null;
+                        return;
+                    }
                     lastSelectedObject = hitObject.transform.GetComponent<PlacementObject>();
                     if (lastSelectedObject != null)
                     {

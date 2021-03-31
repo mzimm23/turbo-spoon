@@ -2464,14 +2464,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scrollContainer: {fileID: 572084756}
-  containers:
-  - {fileID: 1878805461}
+  containers: []
   myCanvas: {fileID: 1421150395}
   plane: {fileID: 0}
   button: {fileID: 1746233321}
   buttonStates:
   - {fileID: 21300000, guid: 2f331e95956932f49a2becbc01ff1ca3, type: 3}
-  - {fileID: 21300000, guid: 0bf945f1f2a1c4d4489a455d50d2f2dd, type: 3}
+  - {fileID: 21300000, guid: 8213bcff47dddca43b35c274694b377f, type: 3}
 --- !u!1 &1816287337
 GameObject:
   m_ObjectHideFlags: 0
@@ -2780,7 +2779,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1878805462
 RectTransform:
   m_ObjectHideFlags: 0
