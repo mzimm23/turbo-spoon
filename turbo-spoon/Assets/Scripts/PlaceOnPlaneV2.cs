@@ -82,7 +82,7 @@ public class PlaceOnPlaneV2 : MonoBehaviour
                 RaycastHit hitObject;
                 if (Physics.Raycast(ray, out hitObject))
                 {
-                    UpdateLog("Hit: " + hitObject.ToString());
+                    UpdateLog("Hit: " + hitObject.collider.ToString());
                     initialHit = hitObject.point;
                     
                     if(lastSelectedObject == hitObject.transform.GetComponent<PlacementObject>()) //This is experimantal. It is meant to de-select an object that is selected once clicked again
@@ -96,8 +96,11 @@ public class PlaceOnPlaneV2 : MonoBehaviour
                         }
                         
                     }
+                    if (hitObject.transform.GetComponent<PlacementObject>() != null)
+                    {
+                        lastSelectedObject = hitObject.transform.GetComponent<PlacementObject>(); // this used to be outside any if. Testing select problem
+                    }
                     
-                    lastSelectedObject = hitObject.transform.GetComponent<PlacementObject>();
                     if (lastSelectedObject != null)
                     {
                         text.text = "The current selected object is: " + lastSelectedObject.name;
@@ -163,6 +166,7 @@ public class PlaceOnPlaneV2 : MonoBehaviour
     public void DeleteSelected()
     {
         Destroy(lastSelectedObject.gameObject);
+        UpdateLog("Deleted: " + lastSelectedObject);
         lastSelectedObject = null;
     }
 
