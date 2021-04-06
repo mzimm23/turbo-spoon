@@ -82,7 +82,7 @@ public class PlaceOnPlaneV2 : MonoBehaviour
                 RaycastHit hitObject;
                 if (Physics.Raycast(ray, out hitObject))
                 {
-                    UpdateLog("Hit: " + hitObject.collider.ToString());
+                    UpdateLog("Hit: " + hitObject.transform.gameObject.name.ToString());
                     initialHit = hitObject.point;
                     
                     if(lastSelectedObject == hitObject.transform.GetComponent<PlacementObject>()) //This is experimantal. It is meant to de-select an object that is selected once clicked again
@@ -96,7 +96,7 @@ public class PlaceOnPlaneV2 : MonoBehaviour
                         }
                         
                     }
-                    if (hitObject.transform.GetComponent<PlacementObject>() != null)
+                    if (hitObject.transform.GetComponent<PlacementObject>() == null)
                     {
                         UpdateLog("DIDNT HIT ANYTHING");
                     }
