@@ -98,9 +98,9 @@ public class PlaceOnPlaneV2 : MonoBehaviour
                     }
                     if (hitObject.transform.GetComponent<PlacementObject>() != null)
                     {
-                        lastSelectedObject = hitObject.transform.GetComponent<PlacementObject>(); // this used to be outside any if. Testing select problem
+                        UpdateLog("DIDNT HIT ANYTHING");
                     }
-                    
+                    lastSelectedObject = hitObject.transform.GetComponent<PlacementObject>();
                     if (lastSelectedObject != null)
                     {
                         text.text = "The current selected object is: " + lastSelectedObject.name;
