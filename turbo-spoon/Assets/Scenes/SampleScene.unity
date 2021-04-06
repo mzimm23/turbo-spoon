@@ -3550,6 +3550,7 @@ MonoBehaviour:
   buttonStates:
   - {fileID: 21300000, guid: 2f331e95956932f49a2becbc01ff1ca3, type: 3}
   - {fileID: 21300000, guid: 8213bcff47dddca43b35c274694b377f, type: 3}
+  logText: {fileID: 1831818120}
 --- !u!114 &1746233325
 MonoBehaviour:
   m_ObjectHideFlags: 0

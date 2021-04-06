@@ -56,6 +56,7 @@ public class ToggleContainer : MonoBehaviour
             planeManager.SetTrackablesActive(false);
             planeManager.enabled = false;//This might break it
             planeBool = false;
+            UpdateLog("Plane Manager is "+planeManager.enabled);
             //SetAllPlanesActive(false);
             
         }
@@ -64,6 +65,7 @@ public class ToggleContainer : MonoBehaviour
             planeManager.gameObject.SetActive(true);
             planeManager.enabled = true;//This might break it
             planeBool = true;
+            UpdateLog("Plane Manager is " + planeManager.enabled);
             //SetAllPlanesActive(true);
         }
     }
@@ -104,5 +106,11 @@ public class ToggleContainer : MonoBehaviour
             plane.gameObject.SetActive(value);
         }
         planeBool = value;
+    }
+
+    [SerializeField] Text logText;
+    public void UpdateLog(string text)
+    {
+        logText.text += "\n" + text;
     }
 }
