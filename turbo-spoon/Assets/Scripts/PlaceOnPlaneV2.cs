@@ -88,6 +88,7 @@ public class PlaceOnPlaneV2 : MonoBehaviour
                     if(lastSelectedObject == hitObject.transform.GetComponent<PlacementObject>()) //This is experimantal. It is meant to de-select an object that is selected once clicked again
                     {
                         lastSelectedObject.Selected = false;
+                        UpdateLog("Hit Same Object");
                         //lastSelectedObject = null;
                         return;
                     }
@@ -101,7 +102,7 @@ public class PlaceOnPlaneV2 : MonoBehaviour
                         {
                             placementObject.Selected = placementObject == lastSelectedObject;
                         }
-                    }
+                    }//Maybe add return here if unselect doesnt work
                 }
                 else
                 {
@@ -120,7 +121,9 @@ public class PlaceOnPlaneV2 : MonoBehaviour
                 Pose hitPose = hits[0].pose;
                 if (lastSelectedObject == null)
                 {
+                    UpdateLog("LastSelected Before: "+lastSelectedObject);
                     lastSelectedObject = Instantiate(placedPrefab, hitPose.position, hitPose.rotation).GetComponent<PlacementObject>();
+                    UpdateLog("LastSelected After: " + lastSelectedObject);
                 }
                 else
                 {

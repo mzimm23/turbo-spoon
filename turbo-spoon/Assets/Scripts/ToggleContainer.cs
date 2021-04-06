@@ -53,12 +53,14 @@ public class ToggleContainer : MonoBehaviour
     {
         if (planeBool == true)
         {
-            SetAllPlanesActive(false);
+            planeManager.SetTrackablesActive(false);
+            //SetAllPlanesActive(false);
             
         }
         else
         {
-            SetAllPlanesActive(true);
+            planeManager.SetTrackablesActive(true);
+            //SetAllPlanesActive(true);
         }
     }
 
