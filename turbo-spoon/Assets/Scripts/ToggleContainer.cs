@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.XR.ARFoundation;
 
+[RequireComponent(typeof(ARPlaneManager))]
 public class ToggleContainer : MonoBehaviour
 {
 
@@ -21,7 +22,8 @@ public class ToggleContainer : MonoBehaviour
     private float scrollContStartY;
     float screenBottom;
 
-    public GameObject plane;
+    public ARPlaneManager planeManager;
+    private bool planeBool = true;
 
     [SerializeField]
     public Button button;
@@ -49,13 +51,14 @@ public class ToggleContainer : MonoBehaviour
 
     public void TogglePlane()
     {
-        if (plane.activeSelf == true)
+        if (planeBool == true)
         {
-            plane.SetActive(false);
+            SetAllPlanesActive(false);
+            
         }
         else
         {
-            plane.SetActive(true);
+            SetAllPlanesActive(true);
         }
     }
 
@@ -85,6 +88,15 @@ public class ToggleContainer : MonoBehaviour
     {
         scrollContStartY = scrollContainer.transform.localPosition.y;
         screenBottom = myCanvas.GetComponent<RectTransform>().rect.top;
-        plane = GameObject.FindObjectOfType<ARPlaneManager>().planePrefab;
+        planeManager = GameObject.FindObjectOfType<ARPlaneManager>();
+    }
+
+    private void SetAllPlanesActive(bool value)
+    {
+        foreach(var plane in planeManager.trackables)
+        {
+            plane.gameObject.SetActive(value);
+        }
+        planeBool = value;
     }
 }
