@@ -15,11 +15,11 @@ D:/Unity/Git/turbo-spoon/turbo-spoon
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-64591
+58515
 Successfully changed project path to: D:/Unity/Git/turbo-spoon/turbo-spoon
 D:/Unity/Git/turbo-spoon/turbo-spoon
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 112.67 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 60.68 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.3.0f1 (c7b5465681fb)
 [Subsystems] Discovering subsystems at path D:/Unity/Versions/2020.3.0f1/Editor/Data/Resources/UnitySubsystems
@@ -35,5 +35,628 @@ Initialize mono
 Mono path[0] = 'D:/Unity/Versions/2020.3.0f1/Editor/Data/Managed'
 Mono path[1] = 'D:/Unity/Versions/2020.3.0f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = 'D:/Unity/Versions/2020.3.0f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56952
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56504
 Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: D:/Unity/Versions/2020.3.0f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.001640 seconds.
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 55.02 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  3.900 seconds
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.001050 seconds.
+Begin MonoManager ReloadAssembly
+Error: Could not load signature of UnityEditor.XR.ARKit.XcodeAssetCatalog:WriteAndAddToPBXProject due to: Could not load file or assembly 'UnityEditor.iOS.Extensions.Xcode, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null' or one of its dependencies. assembly:UnityEditor.iOS.Extensions.Xcode, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null type:<unknown type> member:(null) signature:<none>
+
+Unloading broken assembly Library/ScriptAssemblies/Unity.XR.ARKit.Editor.dll, this assembly can cause crashes in the runtime
+
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 65.48 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.480 seconds
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.08 seconds
+Refreshing native plugins compatible for Editor in 0.41 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1553 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 73.5 MB.
+System memory in use after: 73.5 MB.
+
+Unloading 12 unused Assets to reduce memory usage. Loaded Objects now: 2002.
+Total: 2.513000 ms (FindLiveObjects: 0.225800 ms CreateObjectMapping: 0.088600 ms MarkObjects: 2.052400 ms  DeleteObjects: 0.145000 ms)
+
+========================================================================
+Received Import Request.
+  path: Assets/ChangeItems.cs
+  artifactKey: Guid(380805e5401137d4eaa333dfe87c9fe8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ChangeItems.cs using Guid(380805e5401137d4eaa333dfe87c9fe8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2dff1e051ebc4d5b0aab5159d29044fc') in 0.082246 seconds
+  Import took 0.144417 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 27.102788 seconds.
+  path: Assets/ChangeItems.cs
+  artifactKey: Guid(380805e5401137d4eaa333dfe87c9fe8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ChangeItems.cs using Guid(380805e5401137d4eaa333dfe87c9fe8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd5fa61766df12545832ead9dd6883497') in 0.004148 seconds
+  Import took 0.088711 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.921520 seconds.
+  path: Assets/ChangeItems.cs
+  artifactKey: Guid(380805e5401137d4eaa333dfe87c9fe8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ChangeItems.cs using Guid(380805e5401137d4eaa333dfe87c9fe8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '33b1b2f845818754f8a17d54d8647545') in 0.004307 seconds
+  Import took 0.075278 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.000930 seconds.
+Begin MonoManager ReloadAssembly
+Error: Could not load signature of UnityEditor.XR.ARKit.XcodeAssetCatalog:WriteAndAddToPBXProject due to: Could not load file or assembly 'UnityEditor.iOS.Extensions.Xcode, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null' or one of its dependencies. assembly:UnityEditor.iOS.Extensions.Xcode, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null type:<unknown type> member:(null) signature:<none>
+
+Unloading broken assembly Library/ScriptAssemblies/Unity.XR.ARKit.Editor.dll, this assembly can cause crashes in the runtime
+
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.42 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.100 seconds
+Platform modules already initialized, skipping
+Switching build target platform(5) subTarget(0) extendedPlatform(0) -> platform(9) subTarget(16777218) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 0.43 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1530 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 71.6 MB.
+System memory in use after: 71.6 MB.
+
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 2006.
+Total: 2.703400 ms (FindLiveObjects: 0.265200 ms CreateObjectMapping: 0.092300 ms MarkObjects: 2.255200 ms  DeleteObjects: 0.089200 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001424 seconds.
+Begin MonoManager ReloadAssembly
+Error: Could not load signature of UnityEditor.XR.ARKit.XcodeAssetCatalog:WriteAndAddToPBXProject due to: Could not load file or assembly 'UnityEditor.iOS.Extensions.Xcode, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null' or one of its dependencies. assembly:UnityEditor.iOS.Extensions.Xcode, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null type:<unknown type> member:(null) signature:<none>
+
+Unloading broken assembly Library/ScriptAssemblies/Unity.XR.ARKit.Editor.dll, this assembly can cause crashes in the runtime
+
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.39 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.195 seconds
+Platform modules already initialized, skipping
+Switching build target platform(5) subTarget(0) extendedPlatform(0) -> platform(9) subTarget(16777218) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 0.45 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1530 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 71.6 MB.
+System memory in use after: 71.7 MB.
+
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 2010.
+Total: 3.349500 ms (FindLiveObjects: 0.199500 ms CreateObjectMapping: 0.114600 ms MarkObjects: 2.915600 ms  DeleteObjects: 0.118200 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.000988 seconds.
+Begin MonoManager ReloadAssembly
+Error: Could not load signature of UnityEditor.XR.ARKit.XcodeAssetCatalog:WriteAndAddToPBXProject due to: Could not load file or assembly 'UnityEditor.iOS.Extensions.Xcode, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null' or one of its dependencies. assembly:UnityEditor.iOS.Extensions.Xcode, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null type:<unknown type> member:(null) signature:<none>
+
+Unloading broken assembly Library/ScriptAssemblies/Unity.XR.ARKit.Editor.dll, this assembly can cause crashes in the runtime
+
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.43 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.119 seconds
+Platform modules already initialized, skipping
+Switching build target platform(5) subTarget(0) extendedPlatform(0) -> platform(9) subTarget(16777218) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 0.34 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1530 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 71.6 MB.
+System memory in use after: 71.7 MB.
+
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 2014.
+Total: 2.369100 ms (FindLiveObjects: 0.194300 ms CreateObjectMapping: 0.069400 ms MarkObjects: 2.015700 ms  DeleteObjects: 0.088200 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001276 seconds.
+Begin MonoManager ReloadAssembly
+Error: Could not load signature of UnityEditor.XR.ARKit.XcodeAssetCatalog:WriteAndAddToPBXProject due to: Could not load file or assembly 'UnityEditor.iOS.Extensions.Xcode, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null' or one of its dependencies. assembly:UnityEditor.iOS.Extensions.Xcode, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null type:<unknown type> member:(null) signature:<none>
+
+Unloading broken assembly Library/ScriptAssemblies/Unity.XR.ARKit.Editor.dll, this assembly can cause crashes in the runtime
+
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.40 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.134 seconds
+Platform modules already initialized, skipping
+Switching build target platform(5) subTarget(0) extendedPlatform(0) -> platform(9) subTarget(16777218) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 0.33 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1530 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 71.6 MB.
+System memory in use after: 71.7 MB.
+
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 2018.
+Total: 2.421300 ms (FindLiveObjects: 0.214600 ms CreateObjectMapping: 0.058600 ms MarkObjects: 2.044400 ms  DeleteObjects: 0.102600 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+========================================================================
+Received Import Request.
+  Time since last request: 241.584879 seconds.
+  path: Assets/Button Container.prefab
+  artifactKey: Guid(150f74ff5e7b24c438b1e7a148f1d13d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Button Container.prefab using Guid(150f74ff5e7b24c438b1e7a148f1d13d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '51f322a8336fff956d2c88d3eefa6bbb') in 0.100049 seconds
+  Import took 0.170301 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.253380 seconds.
+  path: Assets/Button Container.prefab
+  artifactKey: Guid(150f74ff5e7b24c438b1e7a148f1d13d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Button Container.prefab using Guid(150f74ff5e7b24c438b1e7a148f1d13d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9b39c728b6b59ecfe77e608b1e2efc29') in 0.020420 seconds
+  Import took 0.082122 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.833208 seconds.
+  path: Assets/Button Container.prefab
+  artifactKey: Guid(150f74ff5e7b24c438b1e7a148f1d13d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Button Container.prefab using Guid(150f74ff5e7b24c438b1e7a148f1d13d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '34d0b55270ecf554480f8503b9cc5e4a') in 0.019530 seconds
+  Import took 0.044310 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.723302 seconds.
+  path: Assets/Button Container.prefab
+  artifactKey: Guid(150f74ff5e7b24c438b1e7a148f1d13d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Button Container.prefab using Guid(150f74ff5e7b24c438b1e7a148f1d13d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '64dd05d319217a10a8c5daee44c99ba5') in 0.016732 seconds
+  Import took 0.021545 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.030097 seconds.
+  path: Assets/Button Container.prefab
+  artifactKey: Guid(150f74ff5e7b24c438b1e7a148f1d13d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Button Container.prefab using Guid(150f74ff5e7b24c438b1e7a148f1d13d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '969fa0f23a686134166ff5a6860dca0d') in 0.020460 seconds
+  Import took 0.025754 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.933398 seconds.
+  path: Assets/Button Container.prefab
+  artifactKey: Guid(150f74ff5e7b24c438b1e7a148f1d13d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Button Container.prefab using Guid(150f74ff5e7b24c438b1e7a148f1d13d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '57b0db215de43dead62d37b2706653a3') in 0.017667 seconds
+  Import took 0.063621 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.745801 seconds.
+  path: Assets/Button Container.prefab
+  artifactKey: Guid(150f74ff5e7b24c438b1e7a148f1d13d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Button Container.prefab using Guid(150f74ff5e7b24c438b1e7a148f1d13d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '35fb01184421c800b9c3c13e58b990ac') in 0.017208 seconds
+  Import took 0.035486 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.125420 seconds.
+  path: Assets/Button Container.prefab
+  artifactKey: Guid(150f74ff5e7b24c438b1e7a148f1d13d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Button Container.prefab using Guid(150f74ff5e7b24c438b1e7a148f1d13d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9c5e99d1a05e397ca15810390b92c721') in 0.018041 seconds
+  Import took 0.023103 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.563418 seconds.
+  path: Assets/Button Container.prefab
+  artifactKey: Guid(150f74ff5e7b24c438b1e7a148f1d13d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Button Container.prefab using Guid(150f74ff5e7b24c438b1e7a148f1d13d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9413295e37cbd352d4a90d0530748f83') in 0.020039 seconds
+  Import took 0.042764 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.784194 seconds.
+  path: Assets/Button Container.prefab
+  artifactKey: Guid(150f74ff5e7b24c438b1e7a148f1d13d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Button Container.prefab using Guid(150f74ff5e7b24c438b1e7a148f1d13d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '15829f00dd4ad03e546a8ef6fb729333') in 0.018304 seconds
+  Import took 0.045019 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 6.816398 seconds.
+  path: Assets/ChangeItems.cs
+  artifactKey: Guid(380805e5401137d4eaa333dfe87c9fe8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ChangeItems.cs using Guid(380805e5401137d4eaa333dfe87c9fe8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f524ef03e63977c6227d834f5c0c6f67') in 0.005852 seconds
+  Import took 0.097144 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001042 seconds.
+Begin MonoManager ReloadAssembly
+Error: Could not load signature of UnityEditor.XR.ARKit.XcodeAssetCatalog:WriteAndAddToPBXProject due to: Could not load file or assembly 'UnityEditor.iOS.Extensions.Xcode, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null' or one of its dependencies. assembly:UnityEditor.iOS.Extensions.Xcode, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null type:<unknown type> member:(null) signature:<none>
+
+Unloading broken assembly Library/ScriptAssemblies/Unity.XR.ARKit.Editor.dll, this assembly can cause crashes in the runtime
+
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.43 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.138 seconds
+Platform modules already initialized, skipping
+Switching build target platform(5) subTarget(0) extendedPlatform(0) -> platform(9) subTarget(16777218) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 0.44 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1530 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 71.8 MB.
+System memory in use after: 71.8 MB.
+
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 2025.
+Total: 2.435400 ms (FindLiveObjects: 0.206100 ms CreateObjectMapping: 0.070500 ms MarkObjects: 2.058800 ms  DeleteObjects: 0.098400 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+========================================================================
+Received Import Request.
+  Time since last request: 167.492498 seconds.
+  path: Assets/ChangeItems.cs
+  artifactKey: Guid(380805e5401137d4eaa333dfe87c9fe8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ChangeItems.cs using Guid(380805e5401137d4eaa333dfe87c9fe8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3baaf93d49c31a577f8e264eb534af99') in 0.006166 seconds
+  Import took 0.009152 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.597868 seconds.
+  path: Assets/Button Container.prefab
+  artifactKey: Guid(150f74ff5e7b24c438b1e7a148f1d13d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Button Container.prefab using Guid(150f74ff5e7b24c438b1e7a148f1d13d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c9c41b1e0230f7959679930358bf9d3b') in 0.079689 seconds
+  Import took 0.126673 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 13.112045 seconds.
+  path: Assets/Button Container.prefab
+  artifactKey: Guid(150f74ff5e7b24c438b1e7a148f1d13d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Button Container.prefab using Guid(150f74ff5e7b24c438b1e7a148f1d13d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '69e37df27edd3de425b5fe870cc2efc5') in 0.019258 seconds
+  Import took 0.031002 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.482208 seconds.
+  path: Assets/Button Container.prefab
+  artifactKey: Guid(150f74ff5e7b24c438b1e7a148f1d13d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Button Container.prefab using Guid(150f74ff5e7b24c438b1e7a148f1d13d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '027807178b0d880d17cf1cc62f235236') in 0.019555 seconds
+  Import took 0.074130 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.908718 seconds.
+  path: Assets/Button Container.prefab
+  artifactKey: Guid(150f74ff5e7b24c438b1e7a148f1d13d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Button Container.prefab using Guid(150f74ff5e7b24c438b1e7a148f1d13d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fbc218dcd66d9ffc52d3da6d0b347501') in 0.018147 seconds
+  Import took 0.022627 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 15.986989 seconds.
+  path: Assets/Button Container.prefab
+  artifactKey: Guid(150f74ff5e7b24c438b1e7a148f1d13d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Button Container.prefab using Guid(150f74ff5e7b24c438b1e7a148f1d13d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c332c476c506840b4d4d8cd1923ff96a') in 0.020460 seconds
+  Import took 0.081714 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 6.520045 seconds.
+  path: Assets/Button Container.prefab
+  artifactKey: Guid(150f74ff5e7b24c438b1e7a148f1d13d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Button Container.prefab using Guid(150f74ff5e7b24c438b1e7a148f1d13d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c627a01cc4600d98cb172ea971747886') in 0.018588 seconds
+  Import took 0.067269 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 24.020282 seconds.
+  path: Assets/Button Container.prefab
+  artifactKey: Guid(150f74ff5e7b24c438b1e7a148f1d13d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Button Container.prefab using Guid(150f74ff5e7b24c438b1e7a148f1d13d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6d37182c29e8d1e4358382dffa03b354') in 0.020247 seconds
+  Import took 0.097380 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 6.947591 seconds.
+  path: Assets/Button Container.prefab
+  artifactKey: Guid(150f74ff5e7b24c438b1e7a148f1d13d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Button Container.prefab using Guid(150f74ff5e7b24c438b1e7a148f1d13d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e28fc064467a85e47b1c41988cfeff35') in 0.018332 seconds
+  Import took 0.022759 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001024 seconds.
+Begin MonoManager ReloadAssembly
+Error: Could not load signature of UnityEditor.XR.ARKit.XcodeAssetCatalog:WriteAndAddToPBXProject due to: Could not load file or assembly 'UnityEditor.iOS.Extensions.Xcode, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null' or one of its dependencies. assembly:UnityEditor.iOS.Extensions.Xcode, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null type:<unknown type> member:(null) signature:<none>
+
+Unloading broken assembly Library/ScriptAssemblies/Unity.XR.ARKit.Editor.dll, this assembly can cause crashes in the runtime
+
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.41 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.174 seconds
+Platform modules already initialized, skipping
+Switching build target platform(5) subTarget(0) extendedPlatform(0) -> platform(9) subTarget(16777218) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 0.35 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1530 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 71.8 MB.
+System memory in use after: 71.8 MB.
+
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 2029.
+Total: 2.380700 ms (FindLiveObjects: 0.273400 ms CreateObjectMapping: 0.062500 ms MarkObjects: 1.928400 ms  DeleteObjects: 0.115200 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001050 seconds.
+Begin MonoManager ReloadAssembly
+Error: Could not load signature of UnityEditor.XR.ARKit.XcodeAssetCatalog:WriteAndAddToPBXProject due to: Could not load file or assembly 'UnityEditor.iOS.Extensions.Xcode, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null' or one of its dependencies. assembly:UnityEditor.iOS.Extensions.Xcode, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null type:<unknown type> member:(null) signature:<none>
+
+Unloading broken assembly Library/ScriptAssemblies/Unity.XR.ARKit.Editor.dll, this assembly can cause crashes in the runtime
+
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.34 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.090 seconds
+Platform modules already initialized, skipping
+Switching build target platform(5) subTarget(0) extendedPlatform(0) -> platform(9) subTarget(16777218) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 0.39 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1530 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 71.8 MB.
+System memory in use after: 71.8 MB.
+
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 2033.
+Total: 2.889700 ms (FindLiveObjects: 0.332000 ms CreateObjectMapping: 0.138200 ms MarkObjects: 2.252400 ms  DeleteObjects: 0.165200 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+========================================================================
+Received Import Request.
+  Time since last request: 79.250666 seconds.
+  path: Assets/Button Container.prefab
+  artifactKey: Guid(150f74ff5e7b24c438b1e7a148f1d13d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Button Container.prefab using Guid(150f74ff5e7b24c438b1e7a148f1d13d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4a153a4649465ad1227e6f38c6754961') in 0.066219 seconds
+  Import took 0.070932 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001080 seconds.
+Begin MonoManager ReloadAssembly
+Error: Could not load signature of UnityEditor.XR.ARKit.XcodeAssetCatalog:WriteAndAddToPBXProject due to: Could not load file or assembly 'UnityEditor.iOS.Extensions.Xcode, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null' or one of its dependencies. assembly:UnityEditor.iOS.Extensions.Xcode, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null type:<unknown type> member:(null) signature:<none>
+
+Unloading broken assembly Library/ScriptAssemblies/Unity.XR.ARKit.Editor.dll, this assembly can cause crashes in the runtime
+
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.43 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.210 seconds
+Platform modules already initialized, skipping
+Switching build target platform(5) subTarget(0) extendedPlatform(0) -> platform(9) subTarget(16777218) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 0.33 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1530 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 71.8 MB.
+System memory in use after: 71.9 MB.
+
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 2037.
+Total: 2.774500 ms (FindLiveObjects: 0.252700 ms CreateObjectMapping: 0.062900 ms MarkObjects: 2.333800 ms  DeleteObjects: 0.123800 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001027 seconds.
+Begin MonoManager ReloadAssembly
+Error: Could not load signature of UnityEditor.XR.ARKit.XcodeAssetCatalog:WriteAndAddToPBXProject due to: Could not load file or assembly 'UnityEditor.iOS.Extensions.Xcode, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null' or one of its dependencies. assembly:UnityEditor.iOS.Extensions.Xcode, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null type:<unknown type> member:(null) signature:<none>
+
+Unloading broken assembly Library/ScriptAssemblies/Unity.XR.ARKit.Editor.dll, this assembly can cause crashes in the runtime
+
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.37 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.124 seconds
+Platform modules already initialized, skipping
+Switching build target platform(5) subTarget(0) extendedPlatform(0) -> platform(9) subTarget(16777218) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 0.58 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1530 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 71.8 MB.
+System memory in use after: 71.9 MB.
+
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 2041.
+Total: 2.406000 ms (FindLiveObjects: 0.225200 ms CreateObjectMapping: 0.070200 ms MarkObjects: 1.992600 ms  DeleteObjects: 0.116600 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+========================================================================
+Received Import Request.
+  Time since last request: 224.728000 seconds.
+  path: Assets/Button Container.prefab
+  artifactKey: Guid(150f74ff5e7b24c438b1e7a148f1d13d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Button Container.prefab using Guid(150f74ff5e7b24c438b1e7a148f1d13d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1e9f390456f801590d81fb957c23ff41') in 0.070781 seconds
+  Import took 0.177873 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000507 seconds.
+  path: Assets/Container Abstract.prefab
+  artifactKey: Guid(03a40937c59b1aa45a47a5a8998cc4e9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Container Abstract.prefab using Guid(03a40937c59b1aa45a47a5a8998cc4e9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '52188934ac612eb722a7f329734565f6') in 0.006576 seconds
+  Import took 0.011272 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001510 seconds.
+Begin MonoManager ReloadAssembly
+Error: Could not load signature of UnityEditor.XR.ARKit.XcodeAssetCatalog:WriteAndAddToPBXProject due to: Could not load file or assembly 'UnityEditor.iOS.Extensions.Xcode, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null' or one of its dependencies. assembly:UnityEditor.iOS.Extensions.Xcode, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null type:<unknown type> member:(null) signature:<none>
+
+Unloading broken assembly Library/ScriptAssemblies/Unity.XR.ARKit.Editor.dll, this assembly can cause crashes in the runtime
+
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.34 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.135 seconds
+Platform modules already initialized, skipping
+Switching build target platform(5) subTarget(0) extendedPlatform(0) -> platform(9) subTarget(16777218) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 0.37 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1530 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 71.8 MB.
+System memory in use after: 71.9 MB.
+
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 2045.
+Total: 2.410800 ms (FindLiveObjects: 0.185900 ms CreateObjectMapping: 0.055100 ms MarkObjects: 2.027700 ms  DeleteObjects: 0.140700 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+========================================================================
+Received Import Request.
+  Time since last request: 79.268129 seconds.
+  path: Assets/Button Container.prefab
+  artifactKey: Guid(150f74ff5e7b24c438b1e7a148f1d13d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Button Container.prefab using Guid(150f74ff5e7b24c438b1e7a148f1d13d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '46d97bc042551132631963375adcede3') in 0.070680 seconds
+  Import took 0.098217 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001117 seconds.
+Begin MonoManager ReloadAssembly
+Error: Could not load signature of UnityEditor.XR.ARKit.XcodeAssetCatalog:WriteAndAddToPBXProject due to: Could not load file or assembly 'UnityEditor.iOS.Extensions.Xcode, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null' or one of its dependencies. assembly:UnityEditor.iOS.Extensions.Xcode, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null type:<unknown type> member:(null) signature:<none>
+
+Unloading broken assembly Library/ScriptAssemblies/Unity.XR.ARKit.Editor.dll, this assembly can cause crashes in the runtime
+
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.40 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.206 seconds
+Platform modules already initialized, skipping
+Switching build target platform(5) subTarget(0) extendedPlatform(0) -> platform(9) subTarget(16777218) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 0.38 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1530 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 71.8 MB.
+System memory in use after: 71.9 MB.
+
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 2049.
+Total: 3.695100 ms (FindLiveObjects: 0.434500 ms CreateObjectMapping: 0.154500 ms MarkObjects: 2.967100 ms  DeleteObjects: 0.137400 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+========================================================================
+Received Import Request.
+  Time since last request: 23.611200 seconds.
+  path: Assets/Button Container.prefab
+  artifactKey: Guid(150f74ff5e7b24c438b1e7a148f1d13d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Button Container.prefab using Guid(150f74ff5e7b24c438b1e7a148f1d13d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9c84bd6dfab6dcaef42ba94abdb388da') in 0.070291 seconds
+  Import took 0.074433 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001066 seconds.
+Begin MonoManager ReloadAssembly
+Error: Could not load signature of UnityEditor.XR.ARKit.XcodeAssetCatalog:WriteAndAddToPBXProject due to: Could not load file or assembly 'UnityEditor.iOS.Extensions.Xcode, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null' or one of its dependencies. assembly:UnityEditor.iOS.Extensions.Xcode, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null type:<unknown type> member:(null) signature:<none>
+
+Unloading broken assembly Library/ScriptAssemblies/Unity.XR.ARKit.Editor.dll, this assembly can cause crashes in the runtime
+
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.34 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.140 seconds
+Platform modules already initialized, skipping
+Switching build target platform(5) subTarget(0) extendedPlatform(0) -> platform(9) subTarget(16777218) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 0.41 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1530 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 71.8 MB.
+System memory in use after: 71.9 MB.
+
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 2053.
+Total: 2.790800 ms (FindLiveObjects: 0.337800 ms CreateObjectMapping: 0.124900 ms MarkObjects: 2.235600 ms  DeleteObjects: 0.090700 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
