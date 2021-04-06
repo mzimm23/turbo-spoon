@@ -7,7 +7,7 @@ public class ChangeItems : MonoBehaviour
 {
     [SerializeField]
     public Button[] abstractArt, second;
-    private Button[] activeButtons;
+    public Button[] activeButtons;
 
 
     // Start is called before the first frame update
@@ -20,17 +20,20 @@ public class ChangeItems : MonoBehaviour
         activeButtons = abstractArt;
     }
 
-    public void changeButtons()
+    public void MYMETHOD(Button[] newButtons)
     {
-        foreach(var btn in activeButtons)
+        if (newButtons.Length > 0)
         {
-            btn.gameObject.SetActive(false);
+            foreach (var btn in activeButtons)
+            {
+                btn.gameObject.SetActive(false);
+            }
+            foreach (var btn in newButtons)
+            {
+                btn.gameObject.SetActive(true);
+            }
+            activeButtons = newButtons;
         }
-        foreach (var btn in second)
-        {
-            btn.gameObject.SetActive(true);
-        }
-        activeButtons = abstractArt;
     }
 
 }

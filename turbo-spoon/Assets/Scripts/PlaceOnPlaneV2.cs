@@ -82,23 +82,22 @@ public class PlaceOnPlaneV2 : MonoBehaviour
                 RaycastHit hitObject;
                 if (Physics.Raycast(ray, out hitObject))
                 {
-                    UpdateLog("Hit: " + hitObject.transform.gameObject.name.ToString());
+                    UpdateLog("     Hit: " + hitObject.transform.gameObject.name.ToString());
                     initialHit = hitObject.point;
                     
-                    if(lastSelectedObject == hitObject.transform.GetComponent<PlacementObject>()) //This is experimantal. It is meant to de-select an object that is selected once clicked again
+                    if(lastSelectedObject == hitObject.transform.GetComponent<PlacementObject>() && lastSelectedObject != null) //This is experimantal. It is meant to de-select an object that is selected once clicked again
                     {
                         if (lastSelectedObject.Selected == true)
                         {
                             lastSelectedObject.Selected = false;
-                            UpdateLog("Hit Same Object");
+                            UpdateLog("         Hit Same Object");
                             //lastSelectedObject = null;
                             return;
                         }
-                        
                     }
                     if (hitObject.transform.GetComponent<PlacementObject>() == null)
                     {
-                        UpdateLog("DIDNT HIT ANYTHING");
+                        UpdateLog("         DIDN'T HIT AN OBJECT");
                     }
                     lastSelectedObject = hitObject.transform.GetComponent<PlacementObject>();
                     if (lastSelectedObject != null)
@@ -128,9 +127,9 @@ public class PlaceOnPlaneV2 : MonoBehaviour
                 Pose hitPose = hits[0].pose;
                 if (lastSelectedObject == null)
                 {
-                    UpdateLog("LastSelected Before: "+lastSelectedObject);
+                    UpdateLog("     LastSelected Before Spawn: "+lastSelectedObject);
                     lastSelectedObject = Instantiate(placedPrefab, hitPose.position, hitPose.rotation).GetComponent<PlacementObject>();
-                    UpdateLog("LastSelected After: " + lastSelectedObject);
+                    UpdateLog("     LastSelected After Spawn: " + lastSelectedObject);
                 }
                 else
                 {
@@ -145,7 +144,7 @@ public class PlaceOnPlaneV2 : MonoBehaviour
             }
 
         }
-        text.text = "The current selected object is: " + lastSelectedObject.name;
+        ///text.text = "The current selected object is: " + lastSelectedObject.name;
     }
 
     [SerializeField] Text logText, text;
@@ -166,7 +165,7 @@ public class PlaceOnPlaneV2 : MonoBehaviour
     public void DeleteSelected()
     {
         Destroy(lastSelectedObject.gameObject);
-        UpdateLog("Deleted: " + lastSelectedObject);
+        UpdateLog("     Deleted: " + lastSelectedObject);
         lastSelectedObject = null;
     }
 

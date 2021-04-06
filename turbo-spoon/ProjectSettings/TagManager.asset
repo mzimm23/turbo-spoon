@@ -6,6 +6,7 @@ TagManager:
   tags:
   - PlacementObject
   - Plane
+  - Abstract
   layers:
   - Default
   - TransparentFX
