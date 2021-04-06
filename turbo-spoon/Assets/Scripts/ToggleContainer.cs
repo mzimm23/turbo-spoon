@@ -54,12 +54,16 @@ public class ToggleContainer : MonoBehaviour
         if (planeBool == true)
         {
             planeManager.SetTrackablesActive(false);
+            planeManager.enabled = false;//This might break it
+            planeBool = false;
             //SetAllPlanesActive(false);
             
         }
         else
         {
-            planeManager.SetTrackablesActive(true);
+            planeManager.gameObject.SetActive(true);
+            planeManager.enabled = true;//This might break it
+            planeBool = true;
             //SetAllPlanesActive(true);
         }
     }
@@ -90,7 +94,7 @@ public class ToggleContainer : MonoBehaviour
     {
         scrollContStartY = scrollContainer.transform.localPosition.y;
         screenBottom = myCanvas.GetComponent<RectTransform>().rect.top;
-        planeManager = GameObject.FindObjectOfType<ARPlaneManager>();
+        planeManager = FindObjectOfType<ARPlaneManager>();
     }
 
     private void SetAllPlanesActive(bool value)
