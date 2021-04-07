@@ -91,10 +91,7 @@ public class ToggleContainer : MonoBehaviour
 
    private void Update()
     {
-        if(planeBool == false)
-        {
-            planeManager.SetTrackablesActive(false); // This is terribly inneficcient
-        }
+        
     }
 
 
@@ -105,14 +102,4 @@ public class ToggleContainer : MonoBehaviour
         //planeManager = FindObjectOfType<ARPlaneManager>();
     }
 
-    private void SetAllPlanesActive(bool value)
-    {
-        foreach(var plane in planeManager.trackables)
-        {
-            plane.gameObject.SetActive(value);
-        }
-        planeBool = value;
-    }
-
-    
 }
