@@ -33,7 +33,10 @@ public class ToggleContainer : MonoBehaviour
     public Sprite[] buttonStates;
 
 
-
+    private void Awake()
+    {
+        planeManager = FindObjectOfType<ARPlaneManager>();
+    }
 
     public void ToggleActive()
     {
@@ -52,21 +55,10 @@ public class ToggleContainer : MonoBehaviour
 
     public void TogglePlane()
     {
-        if (planeBool == true)
+        planeManager.enabled = !planeManager.enabled;
+        foreach(ARPlane plane in planeManager.trackables)
         {
-            //planeManager.GetComponent<ARPlaneManager>().enabled = false;
-            planeManager.SetTrackablesActive(false);
-            //planeManager.enabled = false;//This might break it
-            planeBool = false;
-            //SetAllPlanesActive(false);
-            
-        }
-        else
-        {
-            planeManager.gameObject.SetActive(true);
-            //planeManager.GetComponent<ARPlaneManager>().enabled = true;
-            planeBool = true;
-            //SetAllPlanesActive(true);
+            plane.gameObject.SetActive(planeManager.enabled);
         }
     }
 
@@ -94,7 +86,7 @@ public class ToggleContainer : MonoBehaviour
     {
         scrollContStartY = scrollContainer.transform.localPosition.y;
         screenBottom = myCanvas.GetComponent<RectTransform>().rect.top;
-        //planeManager = FindObjectOfType<ARPlaneManager>();
+        
     }
 
 }
