@@ -90,7 +90,6 @@ public class PlaceOnPlaneV2 : MonoBehaviour
                         if (lastSelectedObject.Selected == true)
                         {
                             lastSelectedObject.Selected = false;
-                            lastSelectedObject = null; //This might break it
                             UpdateLog("         Deselected: "+lastSelectedObject);
                             lastSelectedObject = defaultObject.transform.GetComponent<PlacementObject>();
                             UpdateLog("         LastSelectedObject: " + lastSelectedObject.name.ToString());

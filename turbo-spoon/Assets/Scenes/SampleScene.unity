@@ -211,7 +211,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   placedPrefab: {fileID: 3202241169458714187, guid: 1133733ae8e98914eb3b72c9248ec791, type: 3}
-  defaultObject: {fileID: 0}
+  defaultObject: {fileID: 1999774072}
   arCamera: {fileID: 1114040581}
   redButton: {fileID: 0}
   greenButton: {fileID: 0}
@@ -2432,6 +2432,11 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!1 &1999774072 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7283544839144164458, guid: d68539f3a50a009448e75cfb648a6f55, type: 3}
+  m_PrefabInstance: {fileID: 4621196051840019645}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &2067426940 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 841398261575915043, guid: 150f74ff5e7b24c438b1e7a148f1d13d, type: 3}
