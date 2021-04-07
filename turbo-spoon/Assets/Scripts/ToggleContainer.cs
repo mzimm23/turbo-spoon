@@ -89,11 +89,6 @@ public class ToggleContainer : MonoBehaviour
         }
     }
 
-   private void Update()
-    {
-        
-    }
-
 
     private void Start()
     {

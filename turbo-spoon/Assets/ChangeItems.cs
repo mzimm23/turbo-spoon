@@ -11,13 +11,10 @@ public class ChangeItems : MonoBehaviour
     RectTransform myCanvas;
     [SerializeField]
     public float tweenTime = 0.5f;
-    float screenBottom;
-
 
     // Start is called before the first frame update
     void Start()
     {
-        screenBottom = myCanvas.rect.yMin;
     }
 
     public void ChangeMenu(RectTransform newObj)
@@ -42,7 +39,5 @@ public class ChangeItems : MonoBehaviour
         LeanTween.moveY(obj, (0), tweenTime);
         
     }
-
-    
 
 }
