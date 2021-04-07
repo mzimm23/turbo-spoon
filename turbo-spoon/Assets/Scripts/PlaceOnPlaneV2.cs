@@ -9,7 +9,7 @@ using UnityEngine.XR.ARFoundation;
 public class PlaceOnPlaneV2 : MonoBehaviour
 {
     [SerializeField]
-    private GameObject placedPrefab;
+    private GameObject placedPrefab, defaultObject;
 
     [SerializeField]
     private Camera arCamera;
@@ -91,7 +91,7 @@ public class PlaceOnPlaneV2 : MonoBehaviour
                         {
                             lastSelectedObject.Selected = false;
                             UpdateLog("         Deselected: "+lastSelectedObject);
-                            lastSelectedObject = null;
+                            lastSelectedObject = defaultObject.transform.GetComponent<PlacementObject>();
                             return;
                         }
                         else
