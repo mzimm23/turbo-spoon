@@ -63,8 +63,8 @@ public class ToggleContainer : MonoBehaviour
         }
         else
         {
-            //planeManager.gameObject.SetActive(true);
-            planeManager.GetComponent<ARPlaneManager>().enabled = true;
+            planeManager.gameObject.SetActive(true);
+            //planeManager.GetComponent<ARPlaneManager>().enabled = true;
             planeBool = true;
             //SetAllPlanesActive(true);
         }
