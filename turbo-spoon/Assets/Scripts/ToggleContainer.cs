@@ -54,7 +54,7 @@ public class ToggleContainer : MonoBehaviour
     {
         if (planeBool == true)
         {
-            planeManager.GetComponent<ARPlaneManager>().enabled = false;
+            //planeManager.GetComponent<ARPlaneManager>().enabled = false;
             planeManager.SetTrackablesActive(false);
             //planeManager.enabled = false;//This might break it
             planeBool = false;
@@ -63,7 +63,7 @@ public class ToggleContainer : MonoBehaviour
         }
         else
         {
-            planeManager.gameObject.SetActive(true);
+            //planeManager.gameObject.SetActive(true);
             planeManager.GetComponent<ARPlaneManager>().enabled = true;
             planeBool = true;
             //SetAllPlanesActive(true);
