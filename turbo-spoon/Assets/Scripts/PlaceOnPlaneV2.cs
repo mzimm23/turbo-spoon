@@ -90,9 +90,14 @@ public class PlaceOnPlaneV2 : MonoBehaviour
                         if (lastSelectedObject.Selected == true)
                         {
                             lastSelectedObject.Selected = false;
-                            UpdateLog("         Hit Same Object");
-                            //lastSelectedObject = null;
+                            UpdateLog("         Deselected: "+lastSelectedObject);
+                            lastSelectedObject = null;
                             return;
+                        }
+                        else
+                        {
+                            lastSelectedObject.Selected = true;
+                            UpdateLog("         Re-Selected: " + lastSelectedObject);
                         }
                     }
                     if (hitObject.transform.GetComponent<PlacementObject>() == null)
