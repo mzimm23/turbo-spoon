@@ -9,7 +9,7 @@ using UnityEngine.XR.ARFoundation;
 public class PlaceOnPlaneV2 : MonoBehaviour
 {
     [SerializeField]
-    private GameObject placedPrefab, defaultObject;
+    private GameObject placedPrefab;
 
     [SerializeField]
     private Camera arCamera;
@@ -92,7 +92,6 @@ public class PlaceOnPlaneV2 : MonoBehaviour
                             lastSelectedObject.Selected = false;
                             canDelete = false; // Experimental
                             UpdateLog("         Deselected: "+lastSelectedObject);
-                            //lastSelectedObject = defaultObject.transform.GetComponent<PlacementObject>();
                             UpdateLog("         LastSelectedObject: " + lastSelectedObject.name.ToString());
                             return;
                         }
@@ -174,7 +173,7 @@ public class PlaceOnPlaneV2 : MonoBehaviour
 
     public void DeleteSelected()
     {
-        if(canDelete == true)
+        if(canDelete == true) //If this doesnt work try changing the if to if(lastSelectedObject == defaultObject)
         {
             Destroy(lastSelectedObject.gameObject);
             UpdateLog("     Deleted: " + lastSelectedObject);

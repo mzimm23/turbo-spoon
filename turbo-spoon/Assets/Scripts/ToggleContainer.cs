@@ -24,7 +24,6 @@ public class ToggleContainer : MonoBehaviour
     float screenBottom;
 
     public ARPlaneManager planeManager;
-    private bool planeBool = true;
 
     [SerializeField]
     public Button button;
