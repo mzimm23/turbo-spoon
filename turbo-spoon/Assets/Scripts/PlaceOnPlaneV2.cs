@@ -20,7 +20,7 @@ public class PlaceOnPlaneV2 : MonoBehaviour
 
     private ARRaycastManager arRaycastManager;
 
-    private bool onTouchHold = false;
+    private bool canDelete = true;
 
     private static List<ARRaycastHit> hits = new List<ARRaycastHit>();
 
@@ -85,19 +85,21 @@ public class PlaceOnPlaneV2 : MonoBehaviour
                     UpdateLog("     Hit: " + hitObject.transform.gameObject.name.ToString());
                     initialHit = hitObject.point;
                     
-                    if(lastSelectedObject == hitObject.transform.GetComponent<PlacementObject>() && lastSelectedObject != null) //This is experimantal. It is meant to de-select an object that is selected once clicked again
+                    if(lastSelectedObject == hitObject.transform.GetComponent<PlacementObject>() && lastSelectedObject != null)
                     {
                         if (lastSelectedObject.Selected == true)
                         {
                             lastSelectedObject.Selected = false;
+                            canDelete = false; // Experimental
                             UpdateLog("         Deselected: "+lastSelectedObject);
-                            lastSelectedObject = defaultObject.transform.GetComponent<PlacementObject>();
+                            //lastSelectedObject = defaultObject.transform.GetComponent<PlacementObject>();
                             UpdateLog("         LastSelectedObject: " + lastSelectedObject.name.ToString());
                             return;
                         }
                         else
                         {
                             lastSelectedObject.Selected = true;
+                            canDelete = true; // Experimental
                             UpdateLog("         Re-Selected: " + lastSelectedObject);
                         }
                     }
@@ -119,6 +121,7 @@ public class PlaceOnPlaneV2 : MonoBehaviour
                 else
                 {
                     UpdateLog("Deselected "+lastSelectedObject);
+                    canDelete = false; //Experimental
                     lastSelectedObject.Selected = false;
                 }
             }   
@@ -135,6 +138,7 @@ public class PlaceOnPlaneV2 : MonoBehaviour
                 {
                     UpdateLog("     LastSelected Before Spawn: "+lastSelectedObject);
                     lastSelectedObject = Instantiate(placedPrefab, hitPose.position, hitPose.rotation).GetComponent<PlacementObject>();
+                    canDelete = true; //Experimantal
                     UpdateLog("     LastSelected After Spawn: " + lastSelectedObject);
                 }
                 else
@@ -170,9 +174,12 @@ public class PlaceOnPlaneV2 : MonoBehaviour
 
     public void DeleteSelected()
     {
-        Destroy(lastSelectedObject.gameObject);
-        UpdateLog("     Deleted: " + lastSelectedObject);
-        lastSelectedObject = null;
+        if(canDelete == true)
+        {
+            Destroy(lastSelectedObject.gameObject);
+            UpdateLog("     Deleted: " + lastSelectedObject);
+            lastSelectedObject = null;
+        }
     }
 
 }
