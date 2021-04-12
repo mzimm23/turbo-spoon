@@ -2064,7 +2064,7 @@ PrefabInstance:
     - target: {fileID: 65516184, guid: 150f74ff5e7b24c438b1e7a148f1d13d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 3202241169458714187, guid: 8f956fa53281c624c8e6e89856b9862a, type: 3}
+      objectReference: {fileID: 3202241169458714187, guid: c0e0f6b819fc6f5439a4d02853a1b34b, type: 3}
     - target: {fileID: 710846576, guid: 150f74ff5e7b24c438b1e7a148f1d13d, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -2133,6 +2133,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 40919621}
+    - target: {fileID: 1194938148, guid: 150f74ff5e7b24c438b1e7a148f1d13d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 3202241169458714187, guid: 37a1d2ad562fcd449a0133162dcc7cc6, type: 3}
     - target: {fileID: 1330152034, guid: 150f74ff5e7b24c438b1e7a148f1d13d, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
