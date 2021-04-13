@@ -10,7 +10,7 @@ public class ChangeItems : MonoBehaviour
     [SerializeField]
     RectTransform myCanvas;
     [SerializeField]
-    public float tweenTime = 0.5f;
+    public float tweenTime = 0.4f;
 
     // Start is called before the first frame update
     void Start()

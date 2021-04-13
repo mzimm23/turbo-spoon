@@ -744,9 +744,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 380805e5401137d4eaa333dfe87c9fe8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activeButton: {fileID: 2067426940}
+  activeButton: {fileID: 1162554802}
   myCanvas: {fileID: 572084757}
-  tweenTime: 0.5
+  tweenTime: 0.4
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -1143,7 +1143,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 841398261575915043, guid: d0df8f60564303a47acc3574e29c2150, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -878
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 841398261575915043, guid: d0df8f60564303a47acc3574e29c2150, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2347,7 +2347,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 841398261575915043, guid: 150f74ff5e7b24c438b1e7a148f1d13d, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0
+      value: -878
       objectReference: {fileID: 0}
     - target: {fileID: 841398261575915043, guid: 150f74ff5e7b24c438b1e7a148f1d13d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
