@@ -20,14 +20,11 @@ public class PlaceOnPlaneV2 : MonoBehaviour
 
     private ARRaycastManager arRaycastManager;
 
-    private bool canDelete = true;
+    //private bool canDelete = true;
 
     private static List<ARRaycastHit> hits = new List<ARRaycastHit>();
 
     private PlacementObject lastSelectedObject;
-
-    [SerializeField]
-    private Button redButton, greenButton, blueButton;
 
     Vector3 initialHit;
 
@@ -148,7 +145,7 @@ public class PlaceOnPlaneV2 : MonoBehaviour
                 {
                     if (lastSelectedObject.Selected)
                     {
-                        //UpdateLog("- Trying to update position of "+lastSelectedObject.ToString());
+                        UpdateLog("- Trying to update position of "+lastSelectedObject.ToString());
                         //lastSelectedObject.transform.position = lastSelectedObject.transform.position + (hitPose.position - initialHit);
                         lastSelectedObject.transform.position = hitPose.position;
                         lastSelectedObject.transform.rotation = hitPose.rotation;
@@ -177,7 +174,7 @@ public class PlaceOnPlaneV2 : MonoBehaviour
 
     public void DeleteSelected()
     {
-        if(lastSelectedObject.Selected == true) //If this doesnt work try changing the if to if(lastSelectedObject == defaultObject)
+        if(lastSelectedObject.Selected) //If this doesnt work try changing the if to if(lastSelectedObject == defaultObject)
         {
             Destroy(lastSelectedObject.gameObject);
             UpdateLog("     Deleted: " + lastSelectedObject);
