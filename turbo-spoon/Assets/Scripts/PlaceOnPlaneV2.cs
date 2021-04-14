@@ -137,7 +137,6 @@ public class PlaceOnPlaneV2 : MonoBehaviour
                 {
                     UpdateLog("     LastSelected Before Spawn: "+lastSelectedObject);
                     lastSelectedObject = Instantiate(placedPrefab, hitPose.position, hitPose.rotation).GetComponent<PlacementObject>();
-                    lastSelectedObject.ToggleSelectedIndicator();
                     //canDelete = true; //Experimantal
                     UpdateLog("     LastSelected After Spawn: " + lastSelectedObject);
                 }

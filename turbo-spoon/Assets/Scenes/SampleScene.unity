@@ -210,11 +210,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d71cfcfaa25630942a529d432551c995, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  placedPrefab: {fileID: 3202241169458714187, guid: 1133733ae8e98914eb3b72c9248ec791, type: 3}
+  placedPrefab: {fileID: 3202241169458714187, guid: 2eb8e2e64b6dbdf4b8fa3ab7b24a410b, type: 3}
   arCamera: {fileID: 1114040581}
-  redButton: {fileID: 0}
-  greenButton: {fileID: 0}
-  blueButton: {fileID: 0}
   logText: {fileID: 1831818120}
   text: {fileID: 328967856}
 --- !u!1 &223974226
@@ -2027,7 +2024,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scrollContainer: {fileID: 572084756}
-  containers: []
+  containers:
+  - {fileID: 1878805461}
   myCanvas: {fileID: 1421150395}
   planeManager: {fileID: 40919619}
   button: {fileID: 1746233321}
@@ -2540,7 +2538,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1878805462
 RectTransform:
   m_ObjectHideFlags: 0
