@@ -28,6 +28,7 @@ public class PlaceOnPlaneV2 : MonoBehaviour
 
     [SerializeField]
     public GameObject previewObject;
+    public GameObject previewObjectChild;
 
     Vector3 initialHit;
 
@@ -47,6 +48,7 @@ public class PlaceOnPlaneV2 : MonoBehaviour
     void Awake()
     {
         arRaycastManager = GetComponent<ARRaycastManager>();
+        previewObjectChild = previewObject.transform.GetChild(0).gameObject;
 
     }
 
@@ -59,7 +61,8 @@ public class PlaceOnPlaneV2 : MonoBehaviour
             PlacedPrefab = loadedGameObject;
             Debug.Log($"Game object with name /" + placedPrefab.name + " was loaded");
             UpdateLog($"Game object with name /" + placedPrefab.name + " was loaded");
-            previewObject = placedPrefab; //Maybe try istantiating
+            previewObjectChild.SetActive(true);
+            previewObjectChild = placedPrefab; //Maybe try istantiating
         }
         else
         {
@@ -127,7 +130,7 @@ public class PlaceOnPlaneV2 : MonoBehaviour
                     UpdateLog("Deselected "+lastSelectedObject);
                     //canDelete = false; //Experimental
                     lastSelectedObject.Selected = false;
-                    lastSelectedObject.ToggleSelectedIndicator(); //Not sure if this one will work
+                    lastSelectedObject.selectedIndicator.SetActive(false); //Not sure if this one will work
                 }
             }   
             if (touch.phase == TouchPhase.Ended)
@@ -142,7 +145,9 @@ public class PlaceOnPlaneV2 : MonoBehaviour
                 if (lastSelectedObject == null)
                 {
                     UpdateLog("     LastSelected Before Spawn: "+lastSelectedObject);
-                    lastSelectedObject = Instantiate(placedPrefab, hitPose.position, hitPose.rotation).GetComponent<PlacementObject>();
+                    //lastSelectedObject = Instantiate(placedPrefab, hitPose.position, hitPose.rotation).GetComponent<PlacementObject>(); ORIGINAL
+                    lastSelectedObject = Instantiate(placedPrefab, previewObject.transform.position, hitPose.rotation).GetComponent<PlacementObject>();
+                    previewObjectChild.SetActive(false);
                     //canDelete = true; //Experimantal
                     UpdateLog("     LastSelected After Spawn: " + lastSelectedObject);
                 }
