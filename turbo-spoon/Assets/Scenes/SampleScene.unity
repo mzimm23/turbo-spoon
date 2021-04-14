@@ -210,9 +210,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d71cfcfaa25630942a529d432551c995, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  placedPrefab: {fileID: 0}
+  placedPrefab: {fileID: 3202241169458714187, guid: 2eb8e2e64b6dbdf4b8fa3ab7b24a410b, type: 3}
   arCamera: {fileID: 1114040581}
   previewObject: {fileID: 2115757296}
+  previewObjectChild: {fileID: 0}
   logText: {fileID: 1831818120}
   text: {fileID: 328967856}
 --- !u!1 &223974226

@@ -79,7 +79,11 @@ public class PlaceOnPlaneV2 : MonoBehaviour
         if (Input.touchCount > 0)
         {
             Touch touch = Input.GetTouch(0);
-            if (IsPointerOverUI(touch)) return;
+            if (IsPointerOverUI(touch))
+            {
+                UpdateLog("Touch is Over UI");
+                return;
+            }
             touchPosition = touch.position;
             if (touch.phase == TouchPhase.Began)
             {
