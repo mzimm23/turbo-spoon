@@ -26,10 +26,6 @@ public class PlaceOnPlaneV2 : MonoBehaviour
 
     private PlacementObject lastSelectedObject;
 
-    [SerializeField]
-    public GameObject previewObject;
-    public GameObject previewObjectChild;
-
     Vector3 initialHit;
 
     private GameObject PlacedPrefab
@@ -48,7 +44,6 @@ public class PlaceOnPlaneV2 : MonoBehaviour
     void Awake()
     {
         arRaycastManager = GetComponent<ARRaycastManager>();
-        previewObjectChild = previewObject.transform.GetChild(0).gameObject;
 
     }
 
@@ -61,8 +56,6 @@ public class PlaceOnPlaneV2 : MonoBehaviour
             PlacedPrefab = loadedGameObject;
             Debug.Log($"Game object with name /" + placedPrefab.name + " was loaded");
             UpdateLog($"Game object with name /" + placedPrefab.name + " was loaded");
-            previewObjectChild.SetActive(true);
-            previewObjectChild = placedPrefab; //Maybe try istantiating
         }
         else
         {
@@ -73,17 +66,11 @@ public class PlaceOnPlaneV2 : MonoBehaviour
 
     void Update()
     {
-        Preview(); // Hopefully this isnt too slow/hot
-        text.text = "The current selected object is: " + lastSelectedObject.name;
-
+        
         if (Input.touchCount > 0)
         {
             Touch touch = Input.GetTouch(0);
-            if (IsPointerOverUI(touch))
-            {
-                UpdateLog("Touch is Over UI");
-                return;
-            }
+            if (IsPointerOverUI(touch)) return;
             touchPosition = touch.position;
             if (touch.phase == TouchPhase.Began)
             {
@@ -121,7 +108,7 @@ public class PlaceOnPlaneV2 : MonoBehaviour
                     lastSelectedObject = hitObject.transform.GetComponent<PlacementObject>();
                     if (lastSelectedObject != null)
                     {
-                        
+                        text.text = "The current selected object is: " + lastSelectedObject.name;
                         PlacementObject[] allOtherObjects = FindObjectsOfType<PlacementObject>();
                         foreach (PlacementObject placementObject in allOtherObjects)
                         {
@@ -134,7 +121,7 @@ public class PlaceOnPlaneV2 : MonoBehaviour
                     UpdateLog("Deselected "+lastSelectedObject);
                     //canDelete = false; //Experimental
                     lastSelectedObject.Selected = false;
-                    lastSelectedObject.selectedIndicator.SetActive(false); //Not sure if this one will work
+                    lastSelectedObject.ToggleSelectedIndicator(); //Not sure if this one will work
                 }
             }   
             if (touch.phase == TouchPhase.Ended)
@@ -149,9 +136,7 @@ public class PlaceOnPlaneV2 : MonoBehaviour
                 if (lastSelectedObject == null)
                 {
                     UpdateLog("     LastSelected Before Spawn: "+lastSelectedObject);
-                    //lastSelectedObject = Instantiate(placedPrefab, hitPose.position, hitPose.rotation).GetComponent<PlacementObject>(); ORIGINAL
-                    lastSelectedObject = Instantiate(placedPrefab, previewObject.transform.position, hitPose.rotation).GetComponent<PlacementObject>();
-                    previewObjectChild.SetActive(false);
+                    lastSelectedObject = Instantiate(placedPrefab, hitPose.position, hitPose.rotation).GetComponent<PlacementObject>();
                     //canDelete = true; //Experimantal
                     UpdateLog("     LastSelected After Spawn: " + lastSelectedObject);
                 }
@@ -159,6 +144,7 @@ public class PlaceOnPlaneV2 : MonoBehaviour
                 {
                     if (lastSelectedObject.Selected)
                     {
+                        UpdateLog("- Trying to update position of "+lastSelectedObject.ToString());
                         //lastSelectedObject.transform.position = lastSelectedObject.transform.position + (hitPose.position - initialHit);
                         lastSelectedObject.transform.position = hitPose.position;
                         lastSelectedObject.transform.rotation = hitPose.rotation;
@@ -195,15 +181,9 @@ public class PlaceOnPlaneV2 : MonoBehaviour
         }
     }
 
-    void Preview()
+    public void Preview()
     {
-        Vector3 origin = arCamera.ViewportToScreenPoint(new Vector3(.5f,.5f,0));
-        Ray ray = arCamera.ViewportPointToRay(origin);
-        if (arRaycastManager.Raycast(ray, hits))
-        {
-            Pose pose = hits[0].pose;
-            previewObject.transform.position = pose.position;
-        }
+
     }
 
 }
