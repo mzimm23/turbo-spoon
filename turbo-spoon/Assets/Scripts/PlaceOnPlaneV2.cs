@@ -90,7 +90,8 @@ public class PlaceOnPlaneV2 : MonoBehaviour
                         if (lastSelectedObject.Selected == true)
                         {
                             lastSelectedObject.Selected = false;
-                            canDelete = false; // Experimental
+                            lastSelectedObject.ToggleSelectedIndicator();
+                            //canDelete = false; // Experimental
                             UpdateLog("         Deselected: "+lastSelectedObject);
                             UpdateLog("         LastSelectedObject: " + lastSelectedObject.name.ToString());
                             return;
@@ -98,7 +99,8 @@ public class PlaceOnPlaneV2 : MonoBehaviour
                         else
                         {
                             lastSelectedObject.Selected = true;
-                            canDelete = true; // Experimental
+                            lastSelectedObject.ToggleSelectedIndicator();
+                            //canDelete = true; // Experimental
                             UpdateLog("         Re-Selected: " + lastSelectedObject);
                         }
                     }
@@ -120,8 +122,9 @@ public class PlaceOnPlaneV2 : MonoBehaviour
                 else
                 {
                     UpdateLog("Deselected "+lastSelectedObject);
-                    canDelete = false; //Experimental
+                    //canDelete = false; //Experimental
                     lastSelectedObject.Selected = false;
+                    lastSelectedObject.ToggleSelectedIndicator(); //Not sure if this one will work
                 }
             }   
             if (touch.phase == TouchPhase.Ended)
@@ -137,7 +140,8 @@ public class PlaceOnPlaneV2 : MonoBehaviour
                 {
                     UpdateLog("     LastSelected Before Spawn: "+lastSelectedObject);
                     lastSelectedObject = Instantiate(placedPrefab, hitPose.position, hitPose.rotation).GetComponent<PlacementObject>();
-                    canDelete = true; //Experimantal
+                    lastSelectedObject.ToggleSelectedIndicator();
+                    //canDelete = true; //Experimantal
                     UpdateLog("     LastSelected After Spawn: " + lastSelectedObject);
                 }
                 else
@@ -173,7 +177,7 @@ public class PlaceOnPlaneV2 : MonoBehaviour
 
     public void DeleteSelected()
     {
-        if(canDelete == true) //If this doesnt work try changing the if to if(lastSelectedObject == defaultObject)
+        if(lastSelectedObject.Selected == true) //If this doesnt work try changing the if to if(lastSelectedObject == defaultObject)
         {
             Destroy(lastSelectedObject.gameObject);
             UpdateLog("     Deleted: " + lastSelectedObject);

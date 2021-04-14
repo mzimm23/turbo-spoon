@@ -90,6 +90,7 @@ public class PlacementObject : MonoBehaviour
         canvasComponent?.gameObject.SetActive(IsSelected);
     }
 
+    /*
     private void Update()
     {
         if(IsSelected == true)
@@ -101,6 +102,6 @@ public class PlacementObject : MonoBehaviour
             selectedIndicator.SetActive(false);
         }
     }
-
+    */
 
 }
