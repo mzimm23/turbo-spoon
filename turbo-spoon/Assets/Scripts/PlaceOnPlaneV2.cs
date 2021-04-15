@@ -26,6 +26,8 @@ public class PlaceOnPlaneV2 : MonoBehaviour
     
     private Pose camMiddlePose;
 
+    private bool canPlace, canMove = false;
+
     Vector3 initialHit;
 
     private GameObject PlacedPrefab
@@ -57,6 +59,7 @@ public class PlaceOnPlaneV2 : MonoBehaviour
             Debug.Log($"Game object with name /" + placedPrefab.name + " was loaded");
             UpdateLog($"Game object with name /" + placedPrefab.name + " was loaded");
             previewObject = placedPrefab;
+            canPlace = true;
         }
         else
         {
@@ -84,9 +87,9 @@ public class PlaceOnPlaneV2 : MonoBehaviour
                     UpdateLog("     Hit: " + hitObject.transform.gameObject.name.ToString());
                     initialHit = hitObject.point;
                     
-                    if(lastSelectedObject == hitObject.transform.GetComponent<PlacementObject>() && lastSelectedObject != null)
+                    if(lastSelectedObject == hitObject.transform.GetComponent<PlacementObject>() && lastSelectedObject != null) // If you tap the selected objecct
                     {
-                        if (lastSelectedObject.Selected == true)
+                        if (lastSelectedObject.Selected == true) // De-select
                         {
                             lastSelectedObject.Selected = false;
                             lastSelectedObject.ToggleSelectedIndicator();
@@ -94,11 +97,12 @@ public class PlaceOnPlaneV2 : MonoBehaviour
                             UpdateLog("         LastSelectedObject: " + lastSelectedObject.name.ToString());
                             return;
                         }
-                        else
+                        else // Select
                         {
                             lastSelectedObject.Selected = true;
                             lastSelectedObject.ToggleSelectedIndicator();
                             UpdateLog("         Re-Selected: " + lastSelectedObject);
+                            return; // Not sure if this will work or break it
                         }
                     }
                     if (hitObject.transform.GetComponent<PlacementObject>() == null)
@@ -134,6 +138,8 @@ public class PlaceOnPlaneV2 : MonoBehaviour
                 {
                     UpdateLog("     LastSelected Before Spawn: "+lastSelectedObject);
                     lastSelectedObject = Instantiate(placedPrefab, camMiddlePose.position, camMiddlePose.rotation).GetComponent<PlacementObject>();
+                    previewObject = null;
+                    canPlace = false;
                     UpdateLog("     LastSelected After Spawn: " + lastSelectedObject);
                 }
                 else
