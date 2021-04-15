@@ -9,7 +9,7 @@ using UnityEngine.XR.ARFoundation;
 public class PlaceOnPlaneV2 : MonoBehaviour
 {
     [SerializeField]
-    private GameObject placedPrefab;
+    private GameObject placedPrefab, previewObject;
 
     [SerializeField]
     private Camera arCamera;
@@ -66,7 +66,7 @@ public class PlaceOnPlaneV2 : MonoBehaviour
 
     void Update()
     {
-        
+        CrosshairCalculation();
         if (Input.touchCount > 0)
         {
             Touch touch = Input.GetTouch(0);
@@ -144,7 +144,6 @@ public class PlaceOnPlaneV2 : MonoBehaviour
                 {
                     if (lastSelectedObject.Selected)
                     {
-                        UpdateLog("- Trying to update position of "+lastSelectedObject.ToString());
                         //lastSelectedObject.transform.position = lastSelectedObject.transform.position + (hitPose.position - initialHit);
                         lastSelectedObject.transform.position = hitPose.position;
                         lastSelectedObject.transform.rotation = hitPose.rotation;
@@ -181,9 +180,23 @@ public class PlaceOnPlaneV2 : MonoBehaviour
         }
     }
 
-    public void Preview()
+    private RaycastHit hit;
+    void CrosshairCalculation()
     {
+        Vector3 origin = arCamera.ViewportToScreenPoint(new Vector3(0.5f, 0.5f, 0));
+        Ray ray = arCamera.ScreenPointToRay(origin);
 
+        if (arRaycastManager.Raycast(ray, hits))
+        {
+            Pose pose = hits[0].pose;
+            previewObject.transform.position = pose.position;
+            previewObject.transform.eulerAngles = new Vector3(90, 0, 0);
+        }
+        else if (Physics.Raycast(ray, out hit))
+        {
+            previewObject.transform.position = hit.point;
+            previewObject.transform.up = hit.normal;
+        }
     }
 
 }
