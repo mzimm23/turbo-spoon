@@ -190,7 +190,7 @@ public class PlaceOnPlaneV2 : MonoBehaviour
         {
             Pose pose = hits[0].pose;
             previewObject.transform.position = pose.position;
-            previewObject.transform.eulerAngles = new Vector3(90, 0, 0);
+            previewObject.transform.rotation = pose.rotation;
         }
         else if (Physics.Raycast(ray, out hit))
         {
