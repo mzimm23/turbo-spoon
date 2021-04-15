@@ -106,7 +106,6 @@ GameObject:
   - component: {fileID: 7989374686594070660}
   - component: {fileID: 3286325576422023034}
   - component: {fileID: 4834691668585188642}
-  - component: {fileID: 4168205019917407190}
   m_Layer: 0
   m_Name: Art1 EXP
   m_TagString: Untagged
@@ -290,24 +289,6 @@ MonoBehaviour:
   m_FallbackLayerMask:
     serializedVersion: 2
     m_Bits: 0
---- !u!114 &4168205019917407190
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3202241169458714187}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cbd38134f6046a14283c84df0b4aea06, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IsSelected: 0
-  IsLocked: 0
-  OverlayText: {fileID: 0}
-  canvasComponent: {fileID: 0}
-  OverlayDisplayText: 
-  selectedIndicator: {fileID: 1904121553083178922}
 --- !u!1 &6859981170152810076
 GameObject:
   m_ObjectHideFlags: 0
