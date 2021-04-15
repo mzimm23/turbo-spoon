@@ -20,11 +20,11 @@ public class PlaceOnPlaneV2 : MonoBehaviour
 
     private ARRaycastManager arRaycastManager;
 
-    //private bool canDelete = true;
-
     private static List<ARRaycastHit> hits = new List<ARRaycastHit>();
 
     private PlacementObject lastSelectedObject;
+    
+    private Pose camMiddlePose;
 
     Vector3 initialHit;
 
@@ -56,6 +56,7 @@ public class PlaceOnPlaneV2 : MonoBehaviour
             PlacedPrefab = loadedGameObject;
             Debug.Log($"Game object with name /" + placedPrefab.name + " was loaded");
             UpdateLog($"Game object with name /" + placedPrefab.name + " was loaded");
+            previewObject = placedPrefab;
         }
         else
         {
@@ -66,6 +67,7 @@ public class PlaceOnPlaneV2 : MonoBehaviour
 
     void Update()
     {
+        //text.text = "The current preview object is" + previewObject.name;
         CrosshairCalculation();
         if (Input.touchCount > 0)
         {
@@ -88,7 +90,6 @@ public class PlaceOnPlaneV2 : MonoBehaviour
                         {
                             lastSelectedObject.Selected = false;
                             lastSelectedObject.ToggleSelectedIndicator();
-                            //canDelete = false; // Experimental
                             UpdateLog("         Deselected: "+lastSelectedObject);
                             UpdateLog("         LastSelectedObject: " + lastSelectedObject.name.ToString());
                             return;
@@ -97,7 +98,6 @@ public class PlaceOnPlaneV2 : MonoBehaviour
                         {
                             lastSelectedObject.Selected = true;
                             lastSelectedObject.ToggleSelectedIndicator();
-                            //canDelete = true; // Experimental
                             UpdateLog("         Re-Selected: " + lastSelectedObject);
                         }
                     }
@@ -119,25 +119,21 @@ public class PlaceOnPlaneV2 : MonoBehaviour
                 else
                 {
                     UpdateLog("Deselected "+lastSelectedObject);
-                    //canDelete = false; //Experimental
                     lastSelectedObject.Selected = false;
-                    lastSelectedObject.ToggleSelectedIndicator(); //Not sure if this one will work
+                    lastSelectedObject.ToggleSelectedIndicator();
                 }
             }   
             if (touch.phase == TouchPhase.Ended)
             {
                 UpdateLog("Touch Ended");
-                //lastSelectedObject.Selected = false; original location
             }
-            //Moved this inside v
             if (arRaycastManager.Raycast(touchPosition, hits, UnityEngine.XR.ARSubsystems.TrackableType.PlaneWithinPolygon))
             {
                 Pose hitPose = hits[0].pose;
                 if (lastSelectedObject == null)
                 {
                     UpdateLog("     LastSelected Before Spawn: "+lastSelectedObject);
-                    lastSelectedObject = Instantiate(placedPrefab, hitPose.position, hitPose.rotation).GetComponent<PlacementObject>();
-                    //canDelete = true; //Experimantal
+                    lastSelectedObject = Instantiate(placedPrefab, camMiddlePose.position, camMiddlePose.rotation).GetComponent<PlacementObject>();
                     UpdateLog("     LastSelected After Spawn: " + lastSelectedObject);
                 }
                 else
@@ -152,7 +148,6 @@ public class PlaceOnPlaneV2 : MonoBehaviour
             }
 
         }
-        ///text.text = "The current selected object is: " + lastSelectedObject.name;
     }
 
     [SerializeField] Text logText, text;
@@ -188,9 +183,9 @@ public class PlaceOnPlaneV2 : MonoBehaviour
 
         if (arRaycastManager.Raycast(ray, hits))
         {
-            Pose pose = hits[0].pose;
-            previewObject.transform.position = pose.position;
-            previewObject.transform.rotation = pose.rotation;
+            camMiddlePose = hits[0].pose;
+            previewObject.transform.position = camMiddlePose.position;
+            previewObject.transform.rotation = camMiddlePose.rotation;
         }
         else if (Physics.Raycast(ray, out hit))
         {
