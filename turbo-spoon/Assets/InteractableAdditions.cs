@@ -16,6 +16,7 @@ public class InteractableAdditions : MonoBehaviour
         if (loadedGameObject != null)
         {
             placementInteractable.placementPrefab = loadedGameObject;
+            placementInteractable.customReticle = loadedGameObject;
             Debug.Log($"Game object with name /" + loadedGameObject.name + " was loaded");
         }
         else
