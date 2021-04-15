@@ -28,8 +28,9 @@ public class PlaceOnPlaneV3 : ARBaseGestureInteractable
         {
             return;
         }
-        GameObject spaenedObject = Instantiate(placedPrefab, pose.position, pose.rotation);
+        GameObject spawnedObject = Instantiate(placedPrefab, pose.position, pose.rotation);
     }
+    
 
     // Start is called before the first frame update
     void Start()
@@ -60,7 +61,7 @@ public class PlaceOnPlaneV3 : ARBaseGestureInteractable
         {
             pose =_hits[0].pose;
             crosshair.transform.position = pose.position;
-            crosshair.transform.eulerAngles = pose.position;
+            crosshair.transform.rotation = pose.rotation;
         }
     }
 
@@ -70,6 +71,7 @@ public class PlaceOnPlaneV3 : ARBaseGestureInteractable
         if (loadedGameObject != null)
         {
             placedPrefab = loadedGameObject;
+            crosshair = loadedGameObject;
             Debug.Log($"Game object with name /" + placedPrefab.name + " was loaded");
         }
         else
