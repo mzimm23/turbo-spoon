@@ -9,7 +9,7 @@ using UnityEngine.XR.ARFoundation;
 public class PlaceOnPlaneV2 : MonoBehaviour
 {
     [SerializeField]
-    private GameObject placedPrefab, previewObject;
+    private GameObject placedPrefab, previewObject, loadedGameObject, spawnedObject;
 
     [SerializeField]
     private Camera arCamera;
@@ -53,15 +53,19 @@ public class PlaceOnPlaneV2 : MonoBehaviour
 
     public void ChangePrefabSelection(GameObject gameObject)
     {
-        UpdateLog("Trying to change object to " + gameObject.name);
-        GameObject loadedGameObject = gameObject;
+        if (loadedGameObject == gameObject)
+            return;
+        loadedGameObject = gameObject;
         if (loadedGameObject != null)
         {
-            PlacedPrefab = loadedGameObject;
-            Debug.Log($"Game object with name /" + placedPrefab.name + " was loaded");
-            UpdateLog($"Game object with name /" + placedPrefab.name + " was loaded");
-            previewObject = placedPrefab;
-            canPlace = true;
+            if(previewObject.transform.childCount > 0)
+            {
+                Destroy(previewObject.transform.GetChild(0).gameObject);
+
+            }
+            placedPrefab = loadedGameObject;
+            lastSelectedObject = Instantiate(placedPrefab, camMiddlePose.position, camMiddlePose.rotation).GetComponent<PlacementObject>();
+            lastSelectedObject.transform.parent = previewObject.transform;
         }
         else
         {
@@ -77,7 +81,11 @@ public class PlaceOnPlaneV2 : MonoBehaviour
         if (Input.touchCount > 0)
         {
             Touch touch = Input.GetTouch(0);
-            if (IsPointerOverUI(touch)) return;
+            if (IsPointerOverUI(touch))
+            {
+                Destroy(previewObject.transform.GetChild(0));
+                return;
+            }
             touchPosition = touch.position;
             if (touch.phase == TouchPhase.Began)
             {
@@ -88,8 +96,29 @@ public class PlaceOnPlaneV2 : MonoBehaviour
                 {
                     UpdateLog("     Hit: " + hitObject.transform.gameObject.name.ToString());
                     initialHit = hitObject.point;
-                    
-                   
+                    if (touch.phase == TouchPhase.Stationary)
+                    {
+                        if (lastSelectedObject == hitObject.transform.GetComponent<PlacementObject>() && lastSelectedObject != null) // If you tap the selected objecct
+                        {
+
+                            if (lastSelectedObject.Selected == true) // De-select
+                            {
+                                lastSelectedObject.Selected = false;
+                                lastSelectedObject.ToggleSelectedIndicator();
+                                UpdateLog("         Deselected: " + lastSelectedObject);
+                                UpdateLog("         LastSelectedObject: " + lastSelectedObject.name.ToString());
+                                return;
+                            }
+                            else // Select
+                            {
+                                lastSelectedObject.Selected = true;
+                                lastSelectedObject.ToggleSelectedIndicator();
+                                UpdateLog("         Re-Selected: " + lastSelectedObject);
+                                return; // Not sure if this will work or break it
+                            }
+                        }
+                    }
+
                     if (hitObject.transform.GetComponent<PlacementObject>() == null)
                     {
                         UpdateLog("         DIDN'T HIT AN OBJECT");
@@ -116,42 +145,22 @@ public class PlaceOnPlaneV2 : MonoBehaviour
             {
                 UpdateLog("Touch Ended");
             }
-            if (touch.phase == TouchPhase.Stationary)
-            {
-                if (lastSelectedObject == hitObject.transform.GetComponent<PlacementObject>() && lastSelectedObject != null) // If you tap the selected objecct
-                {
-                    if (lastSelectedObject.Selected == true) // De-select
-                    {
-                        lastSelectedObject.Selected = false;
-                        lastSelectedObject.ToggleSelectedIndicator();
-                        UpdateLog("         Deselected: " + lastSelectedObject);
-                        UpdateLog("         LastSelectedObject: " + lastSelectedObject.name.ToString());
-                        return;
-                    }
-                    else // Select
-                    {
-                        lastSelectedObject.Selected = true;
-                        lastSelectedObject.ToggleSelectedIndicator();
-                        UpdateLog("         Re-Selected: " + lastSelectedObject);
-                        return; // Not sure if this will work or break it
-                    }
-                }
-            }
+            
             if (arRaycastManager.Raycast(touchPosition, hits, UnityEngine.XR.ARSubsystems.TrackableType.PlaneWithinPolygon))
             {
                 Pose hitPose = hits[0].pose;
                 if (lastSelectedObject == null)
                 {
                     UpdateLog("     LastSelected Before Spawn: "+lastSelectedObject);
-                    lastSelectedObject = Instantiate(placedPrefab, camMiddlePose.position, camMiddlePose.rotation).GetComponent<PlacementObject>();
-                    previewObject = null;
-                    canPlace = false;
+                    lastSelectedObject.transform.parent = null;
+                    lastSelectedObject.Locked = false;
                     UpdateLog("     LastSelected After Spawn: " + lastSelectedObject);
                 }
                 else
                 {
                     if (lastSelectedObject.Selected && touch.phase == TouchPhase.Moved)
                     {
+                        if(lastSelectedObject.Locked == false)
                         //lastSelectedObject.transform.position = lastSelectedObject.transform.position + (hitPose.position - initialHit);
                         lastSelectedObject.transform.position = hitPose.position;
                         lastSelectedObject.transform.rotation = hitPose.rotation;
