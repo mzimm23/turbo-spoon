@@ -90,6 +90,14 @@ public class PlaceOnPlaneV2 : MonoBehaviour
             if (touch.phase == TouchPhase.Began)
             {
                 UpdateLog("Touch Began");
+
+                if (lastSelectedObject.Locked == true)
+                {
+                    UpdateLog("Item Placed");
+                    lastSelectedObject.transform.parent = null;
+                    lastSelectedObject.Locked = false;
+                    return;
+                }
                 Ray ray = arCamera.ScreenPointToRay(touch.position);
                 
                 if (Physics.Raycast(ray, out hitObject))
@@ -149,6 +157,15 @@ public class PlaceOnPlaneV2 : MonoBehaviour
             if (arRaycastManager.Raycast(touchPosition, hits, UnityEngine.XR.ARSubsystems.TrackableType.PlaneWithinPolygon))
             {
                 Pose hitPose = hits[0].pose;
+                if (lastSelectedObject.Selected && touch.phase == TouchPhase.Moved)
+                {
+                    if (lastSelectedObject.Locked == false)
+                    {
+                        lastSelectedObject.transform.position = hitPose.position;
+                        lastSelectedObject.transform.rotation = hitPose.rotation;
+                    }
+                }
+                /*
                 if (lastSelectedObject == null)
                 {
                     UpdateLog("     LastSelected Before Spawn: "+lastSelectedObject);
@@ -156,15 +173,10 @@ public class PlaceOnPlaneV2 : MonoBehaviour
                     lastSelectedObject.Locked = false;
                     UpdateLog("     LastSelected After Spawn: " + lastSelectedObject);
                 }
+                */
                 else
                 {
-                    if (lastSelectedObject.Selected && touch.phase == TouchPhase.Moved)
-                    {
-                        if(lastSelectedObject.Locked == false)
-                        //lastSelectedObject.transform.position = lastSelectedObject.transform.position + (hitPose.position - initialHit);
-                        lastSelectedObject.transform.position = hitPose.position;
-                        lastSelectedObject.transform.rotation = hitPose.rotation;
-                    }
+                    
                 }
             }
         }
