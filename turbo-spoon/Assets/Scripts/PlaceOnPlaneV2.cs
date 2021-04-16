@@ -83,7 +83,7 @@ public class PlaceOnPlaneV2 : MonoBehaviour
             Touch touch = Input.GetTouch(0);
             if (IsPointerOverUI(touch))
             {
-                Destroy(previewObject.transform.GetChild(0));
+                Destroy(previewObject.transform.GetChild(0)); //This might make it destroy the object when you click the eye
                 return;
             }
             touchPosition = touch.position;

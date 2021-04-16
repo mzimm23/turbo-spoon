@@ -509,8 +509,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 704374087}
-        m_TargetAssemblyTypeName: InteractableAdditions, Assembly-CSharp
+      - m_Target: {fileID: 879517750}
+        m_TargetAssemblyTypeName: PlaceOnPlaneV2, Assembly-CSharp
         m_MethodName: DeleteSelected
         m_Mode: 1
         m_Arguments:
