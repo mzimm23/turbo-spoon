@@ -39,7 +39,7 @@ public class PlaceOnPlaneV3 : ARBaseGestureInteractable
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         CrosshairCalculation();
     }
