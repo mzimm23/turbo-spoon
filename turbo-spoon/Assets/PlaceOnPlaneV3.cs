@@ -11,7 +11,7 @@ public class PlaceOnPlaneV3 : ARBaseGestureInteractable
     [SerializeField] private Camera arCam;
     [SerializeField] private ARRaycastManager rRaycastManager;
     [SerializeField] public GameObject crosshair;
-    public GameObject placedPrefab;
+    public GameObject placedPrefab, loadedGameObject;
 
     private List<ARRaycastHit> _hits = new List<ARRaycastHit>();
 
@@ -28,7 +28,7 @@ public class PlaceOnPlaneV3 : ARBaseGestureInteractable
         {
             return;
         }
-        GameObject spawnedObject = Instantiate(placedPrefab, pose.position, pose.rotation);
+        placedPrefab.transform.parent = null;
     }
     
 
@@ -67,12 +67,15 @@ public class PlaceOnPlaneV3 : ARBaseGestureInteractable
 
     public void ChangePrefabSelection(GameObject gameObject)
     {
-        GameObject loadedGameObject = gameObject;
+        if (loadedGameObject == gameObject)
+            return;
+        loadedGameObject = gameObject;
         if (loadedGameObject != null)
         {
+            Destroy(placedPrefab);
             placedPrefab = loadedGameObject;
-            crosshair = loadedGameObject;
-            Debug.Log($"Game object with name /" + placedPrefab.name + " was loaded");
+            placedPrefab = Instantiate(placedPrefab, pose.position, pose.rotation);
+            placedPrefab.transform.parent = crosshair.transform;
         }
         else
         {
