@@ -30,6 +30,8 @@ public class PlaceOnPlaneV2 : MonoBehaviour
 
     Vector3 initialHit;
 
+    RaycastHit hitObject;
+
     private GameObject PlacedPrefab
     {
         get
@@ -81,30 +83,13 @@ public class PlaceOnPlaneV2 : MonoBehaviour
             {
                 UpdateLog("Touch Began");
                 Ray ray = arCamera.ScreenPointToRay(touch.position);
-                RaycastHit hitObject;
+                
                 if (Physics.Raycast(ray, out hitObject))
                 {
                     UpdateLog("     Hit: " + hitObject.transform.gameObject.name.ToString());
                     initialHit = hitObject.point;
                     
-                    if(lastSelectedObject == hitObject.transform.GetComponent<PlacementObject>() && lastSelectedObject != null) // If you tap the selected objecct
-                    {
-                        if (lastSelectedObject.Selected == true) // De-select
-                        {
-                            lastSelectedObject.Selected = false;
-                            lastSelectedObject.ToggleSelectedIndicator();
-                            UpdateLog("         Deselected: "+lastSelectedObject);
-                            UpdateLog("         LastSelectedObject: " + lastSelectedObject.name.ToString());
-                            return;
-                        }
-                        else // Select
-                        {
-                            lastSelectedObject.Selected = true;
-                            lastSelectedObject.ToggleSelectedIndicator();
-                            UpdateLog("         Re-Selected: " + lastSelectedObject);
-                            return; // Not sure if this will work or break it
-                        }
-                    }
+                   
                     if (hitObject.transform.GetComponent<PlacementObject>() == null)
                     {
                         UpdateLog("         DIDN'T HIT AN OBJECT");
@@ -122,14 +107,35 @@ public class PlaceOnPlaneV2 : MonoBehaviour
                 }
                 else
                 {
-                    UpdateLog("Deselected "+lastSelectedObject);
-                    lastSelectedObject.Selected = false;
-                    lastSelectedObject.ToggleSelectedIndicator();
+                    //UpdateLog("Deselected "+lastSelectedObject);
+                    //lastSelectedObject.Selected = false;
+                    //lastSelectedObject.ToggleSelectedIndicator();
                 }
             }   
             if (touch.phase == TouchPhase.Ended)
             {
                 UpdateLog("Touch Ended");
+            }
+            if (touch.phase == TouchPhase.Stationary)
+            {
+                if (lastSelectedObject == hitObject.transform.GetComponent<PlacementObject>() && lastSelectedObject != null) // If you tap the selected objecct
+                {
+                    if (lastSelectedObject.Selected == true) // De-select
+                    {
+                        lastSelectedObject.Selected = false;
+                        lastSelectedObject.ToggleSelectedIndicator();
+                        UpdateLog("         Deselected: " + lastSelectedObject);
+                        UpdateLog("         LastSelectedObject: " + lastSelectedObject.name.ToString());
+                        return;
+                    }
+                    else // Select
+                    {
+                        lastSelectedObject.Selected = true;
+                        lastSelectedObject.ToggleSelectedIndicator();
+                        UpdateLog("         Re-Selected: " + lastSelectedObject);
+                        return; // Not sure if this will work or break it
+                    }
+                }
             }
             if (arRaycastManager.Raycast(touchPosition, hits, UnityEngine.XR.ARSubsystems.TrackableType.PlaneWithinPolygon))
             {
@@ -144,7 +150,7 @@ public class PlaceOnPlaneV2 : MonoBehaviour
                 }
                 else
                 {
-                    if (lastSelectedObject.Selected)
+                    if (lastSelectedObject.Selected && touch.phase == TouchPhase.Moved)
                     {
                         //lastSelectedObject.transform.position = lastSelectedObject.transform.position + (hitPose.position - initialHit);
                         lastSelectedObject.transform.position = hitPose.position;
@@ -152,7 +158,6 @@ public class PlaceOnPlaneV2 : MonoBehaviour
                     }
                 }
             }
-
         }
     }
 

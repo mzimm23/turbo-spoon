@@ -1056,7 +1056,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &879517750
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1070,7 +1070,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   placedPrefab: {fileID: 3202241169458714187, guid: 55cd7ee002d5fbe4d93942972c51088f, type: 3}
-  previewObject: {fileID: 0}
+  previewObject: {fileID: 187462112}
   arCamera: {fileID: 325516472}
   logText: {fileID: 1831818120}
   text: {fileID: 328967856}
@@ -2786,15 +2786,19 @@ PrefabInstance:
     - target: {fileID: 841398261624557703, guid: 150f74ff5e7b24c438b1e7a148f1d13d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1459401885}
+      objectReference: {fileID: 879517750}
     - target: {fileID: 841398261624557703, guid: 150f74ff5e7b24c438b1e7a148f1d13d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ChangePrefabSelection
       objectReference: {fileID: 0}
     - target: {fileID: 841398261624557703, guid: 150f74ff5e7b24c438b1e7a148f1d13d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: PlaceOnPlaneV3, Assembly-CSharp
+      value: PlaceOnPlaneV2, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 841398261624557703, guid: 150f74ff5e7b24c438b1e7a148f1d13d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 3202241169458714187, guid: 2eb8e2e64b6dbdf4b8fa3ab7b24a410b, type: 3}
     - target: {fileID: 841398262102353305, guid: 150f74ff5e7b24c438b1e7a148f1d13d, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -2814,14 +2818,14 @@ PrefabInstance:
     - target: {fileID: 841398262102353306, guid: 150f74ff5e7b24c438b1e7a148f1d13d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1459401885}
+      objectReference: {fileID: 879517750}
     - target: {fileID: 841398262102353306, guid: 150f74ff5e7b24c438b1e7a148f1d13d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ChangePrefabSelection
       objectReference: {fileID: 0}
     - target: {fileID: 841398262102353306, guid: 150f74ff5e7b24c438b1e7a148f1d13d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: PlaceOnPlaneV3, Assembly-CSharp
+      value: PlaceOnPlaneV2, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 841398262102353306, guid: 150f74ff5e7b24c438b1e7a148f1d13d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
@@ -2887,7 +2891,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1817326290
 MonoBehaviour:
   m_ObjectHideFlags: 0
