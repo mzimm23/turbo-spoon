@@ -76,8 +76,8 @@ public class PlaceOnPlaneV2 : MonoBehaviour
 
     void Update()
     {
-        //text.text = "The current preview object is" + previewObject.name;
         CrosshairCalculation();
+        text.text = "The current selected object is: " + lastSelectedObject;
         if (Input.touchCount > 0)
         {
             Touch touch = Input.GetTouch(0);
@@ -104,29 +104,24 @@ public class PlaceOnPlaneV2 : MonoBehaviour
                 {
                     UpdateLog("     Hit: " + hitObject.transform.gameObject.name.ToString());
                     initialHit = hitObject.point;
-                    if (touch.phase == TouchPhase.Stationary)
+                   if (lastSelectedObject == hitObject.transform.GetComponent<PlacementObject>() && lastSelectedObject != null) // If you tap the selected objecct
                     {
-                        if (lastSelectedObject == hitObject.transform.GetComponent<PlacementObject>() && lastSelectedObject != null) // If you tap the selected objecct
+                        if (lastSelectedObject.Selected == true) // De-select
                         {
-
-                            if (lastSelectedObject.Selected == true) // De-select
-                            {
-                                lastSelectedObject.Selected = false;
-                                lastSelectedObject.ToggleSelectedIndicator();
-                                UpdateLog("         Deselected: " + lastSelectedObject);
-                                UpdateLog("         LastSelectedObject: " + lastSelectedObject.name.ToString());
-                                return;
-                            }
-                            else // Select
-                            {
-                                lastSelectedObject.Selected = true;
-                                lastSelectedObject.ToggleSelectedIndicator();
-                                UpdateLog("         Re-Selected: " + lastSelectedObject);
-                                return; // Not sure if this will work or break it
-                            }
+                            lastSelectedObject.Selected = false;
+                            lastSelectedObject.ToggleSelectedIndicator();
+                            UpdateLog("         Deselected: " + lastSelectedObject);
+                            UpdateLog("         LastSelectedObject: " + lastSelectedObject.name.ToString());
+                            return;
+                        }
+                        else // Select
+                        {
+                            lastSelectedObject.Selected = true;
+                            lastSelectedObject.ToggleSelectedIndicator();
+                            UpdateLog("         Re-Selected: " + lastSelectedObject);
+                            return; // Not sure if this will work or break it
                         }
                     }
-
                     if (hitObject.transform.GetComponent<PlacementObject>() == null)
                     {
                         UpdateLog("         DIDN'T HIT AN OBJECT");
@@ -134,7 +129,7 @@ public class PlaceOnPlaneV2 : MonoBehaviour
                     lastSelectedObject = hitObject.transform.GetComponent<PlacementObject>();
                     if (lastSelectedObject != null)
                     {
-                        text.text = "The current selected object is: " + lastSelectedObject.name;
+                        
                         PlacementObject[] allOtherObjects = FindObjectsOfType<PlacementObject>();
                         foreach (PlacementObject placementObject in allOtherObjects)
                         {
@@ -144,9 +139,8 @@ public class PlaceOnPlaneV2 : MonoBehaviour
                 }
                 else
                 {
-                    //UpdateLog("Deselected "+lastSelectedObject);
-                    //lastSelectedObject.Selected = false;
-                    //lastSelectedObject.ToggleSelectedIndicator();
+                    UpdateLog("No Raycast Hit I Guess... "+hitObject);
+                    
                 }
             }   
             if (touch.phase == TouchPhase.Ended)
@@ -157,26 +151,13 @@ public class PlaceOnPlaneV2 : MonoBehaviour
             if (arRaycastManager.Raycast(touchPosition, hits, UnityEngine.XR.ARSubsystems.TrackableType.PlaneWithinPolygon))
             {
                 Pose hitPose = hits[0].pose;
-                if (lastSelectedObject.Selected && touch.phase == TouchPhase.Moved)
+                if (lastSelectedObject.Selected == true && touch.phase == TouchPhase.Moved)
                 {
                     if (lastSelectedObject.Locked == false)
                     {
                         lastSelectedObject.transform.position = hitPose.position;
                         lastSelectedObject.transform.rotation = hitPose.rotation;
                     }
-                }
-                /*
-                if (lastSelectedObject == null)
-                {
-                    UpdateLog("     LastSelected Before Spawn: "+lastSelectedObject);
-                    lastSelectedObject.transform.parent = null;
-                    lastSelectedObject.Locked = false;
-                    UpdateLog("     LastSelected After Spawn: " + lastSelectedObject);
-                }
-                */
-                else
-                {
-                    
                 }
             }
         }
