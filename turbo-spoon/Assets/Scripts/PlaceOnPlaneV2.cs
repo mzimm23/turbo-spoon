@@ -84,11 +84,8 @@ public class PlaceOnPlaneV2 : MonoBehaviour
         if (Input.touchCount > 0)
         {
             Touch touch = Input.GetTouch(0);
-            text.text = "Moved Position: "+touch.deltaPosition.ToString();
             if (IsPointerOverUI(touch))
             {
-                UpdateLog("Destroyed " + previewObject.transform.GetChild(0));
-                Destroy(previewObject.transform.GetChild(0)); //This might make it destroy the object when you click the eye
                 return;
             }
             touchPosition = touch.position;
@@ -150,16 +147,21 @@ public class PlaceOnPlaneV2 : MonoBehaviour
             }   
             if (touch.phase == TouchPhase.Ended)
             {
-                if (lastSelectedObject.Selected == false)
+                text.text = "Moved Position: " + touch.deltaPosition.normalized.ToString();
+                if (lastSelectedObject == hitObject.transform.GetComponent<PlacementObject>() && lastSelectedObject != null)
                 {
-                    if (touch.deltaPosition.x < 1 && touch.deltaPosition.x < 1)
+                    
+                    if (lastSelectedObject.Selected == false)
                     {
-                        UpdateLog("Maybe Didnt Move A Whole Lot?");
+                        if (touch.deltaPosition.x < 1 && touch.deltaPosition.x < 1)
+                        {
+                            UpdateLog("Maybe Didnt Move A Whole Lot?");
+                        }
                     }
                 }
                 UpdateLog("Touch Ended");
             }
-            
+
             if (arRaycastManager.Raycast(touchPosition, hits, UnityEngine.XR.ARSubsystems.TrackableType.PlaneWithinPolygon))
             {
                 Pose hitPose = hits[0].pose;
@@ -194,9 +196,9 @@ public class PlaceOnPlaneV2 : MonoBehaviour
     {
         if(lastSelectedObject.Selected) //If this doesnt work try changing the if to if(lastSelectedObject == defaultObject)
         {
+            UpdateLog("     Deleted: " + lastSelectedObject.gameObject);
             Destroy(lastSelectedObject.gameObject);
-            UpdateLog("     Deleted: " + lastSelectedObject);
-            //lastSelectedObject = null;
+            lastSelectedObject = null;
         }
     }
 
