@@ -28,6 +28,8 @@ public class PlaceOnPlaneV2 : MonoBehaviour
 
     private bool canPlace, canMove = false;
 
+    Vector2 minDistance = new Vector2(5, 5);
+
     Vector3 initialHit;
 
     RaycastHit hitObject;
@@ -77,12 +79,15 @@ public class PlaceOnPlaneV2 : MonoBehaviour
     void Update()
     {
         CrosshairCalculation();
-        text.text = "The current selected object is: " + lastSelectedObject;
+        //text.text = "The current selected object is: " + lastSelectedObject;
+        
         if (Input.touchCount > 0)
         {
             Touch touch = Input.GetTouch(0);
+            text.text = "Moved Position: "+touch.deltaPosition.ToString();
             if (IsPointerOverUI(touch))
             {
+                UpdateLog("Destroyed " + previewObject.transform.GetChild(0));
                 Destroy(previewObject.transform.GetChild(0)); //This might make it destroy the object when you click the eye
                 return;
             }
@@ -145,6 +150,13 @@ public class PlaceOnPlaneV2 : MonoBehaviour
             }   
             if (touch.phase == TouchPhase.Ended)
             {
+                if (lastSelectedObject.Selected == false)
+                {
+                    if (touch.deltaPosition.x < 1 && touch.deltaPosition.x < 1)
+                    {
+                        UpdateLog("Maybe Didnt Move A Whole Lot?");
+                    }
+                }
                 UpdateLog("Touch Ended");
             }
             
@@ -184,7 +196,7 @@ public class PlaceOnPlaneV2 : MonoBehaviour
         {
             Destroy(lastSelectedObject.gameObject);
             UpdateLog("     Deleted: " + lastSelectedObject);
-            lastSelectedObject = null;
+            //lastSelectedObject = null;
         }
     }
 
@@ -200,11 +212,13 @@ public class PlaceOnPlaneV2 : MonoBehaviour
             previewObject.transform.position = camMiddlePose.position;
             previewObject.transform.rotation = camMiddlePose.rotation;
         }
+        /*
         else if (Physics.Raycast(ray, out hit))
         {
             previewObject.transform.position = hit.point;
             previewObject.transform.up = hit.normal;
         }
+        */
     }
 
 }
