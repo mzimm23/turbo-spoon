@@ -98,7 +98,6 @@ public class PlaceOnPlaneV2 : MonoBehaviour
                     UpdateLog("Item Placed");
                     lastSelectedObject.transform.parent = null;
                     lastSelectedObject.Selected = false;
-                    lastSelectedObject.Locked = false;
                     return;
                 }
                 Ray ray = arCamera.ScreenPointToRay(touch.position);
@@ -136,6 +135,7 @@ public class PlaceOnPlaneV2 : MonoBehaviour
                     if (lastSelectedObject.Selected == true) // De-select
                     {
                         lastSelectedObject.Selected = false;
+                        lastSelectedObject.Locked = true;
                         lastSelectedObject.ToggleSelectedIndicator();
                         UpdateLog("         Deselected: " + lastSelectedObject);
                         UpdateLog("         LastSelectedObject: " + lastSelectedObject.name.ToString());
@@ -144,6 +144,7 @@ public class PlaceOnPlaneV2 : MonoBehaviour
                     else // Select
                     {
                         lastSelectedObject.Selected = true;
+                        lastSelectedObject.Locked = false;
                         lastSelectedObject.ToggleSelectedIndicator();
                         UpdateLog("         Re-Selected: " + lastSelectedObject);
                         return; // Not sure if this will work or break it
