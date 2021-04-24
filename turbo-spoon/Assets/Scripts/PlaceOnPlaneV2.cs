@@ -79,10 +79,12 @@ public class PlaceOnPlaneV2 : MonoBehaviour
     {
         CrosshairCalculation();
         //text.text = "The current selected object is: " + lastSelectedObject;
-        
+
+
         if (Input.touchCount > 0)
         {
             Touch touch = Input.GetTouch(0);
+            text.text = "Moved Position: " + touch.deltaPosition.magnitude.ToString();
             if (IsPointerOverUI(touch))
             {
                 return;
@@ -146,13 +148,13 @@ public class PlaceOnPlaneV2 : MonoBehaviour
             }   
             if (touch.phase == TouchPhase.Ended)
             {
-                text.text = "Moved Position: " + touch.deltaPosition.normalized.ToString();
+                
                 if (lastSelectedObject == hitObject.transform.GetComponent<PlacementObject>() && lastSelectedObject != null)
                 {
                     
                     if (lastSelectedObject.Selected == false)
                     {
-                        if (touch.deltaPosition.x < 1 && touch.deltaPosition.x < 1)
+                        if (touch.deltaPosition.magnitude < .5)
                         {
                             UpdateLog("Maybe Didnt Move A Whole Lot?");
                         }
@@ -168,14 +170,9 @@ public class PlaceOnPlaneV2 : MonoBehaviour
                 {
                     if (lastSelectedObject.Locked == false)
                     {
-                        if (touch.deltaPosition.x > .25 || touch.deltaPosition.x > .25)
-                        {
-                            UpdateLog("NOT A TAP");
-                            lastSelectedObject.transform.position = hitPose.position;
-                            lastSelectedObject.transform.rotation = hitPose.rotation;
-                        }
-                        
-                        
+                        UpdateLog("NOT A TAP");
+                        lastSelectedObject.transform.position = hitPose.position;
+                        lastSelectedObject.transform.rotation = hitPose.rotation;
                     }
                 }
             }
