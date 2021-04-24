@@ -168,12 +168,14 @@ public class PlaceOnPlaneV2 : MonoBehaviour
                 {
                     if (lastSelectedObject.Locked == false)
                     {
-                        lastSelectedObject.transform.position = hitPose.position;
-                        lastSelectedObject.transform.rotation = hitPose.rotation;
-                        if (touch.deltaPosition.x > .5 || touch.deltaPosition.x > .5)
+                        if (touch.deltaPosition.x > .25 || touch.deltaPosition.x > .25)
                         {
                             UpdateLog("NOT A TAP");
+                            lastSelectedObject.transform.position = hitPose.position;
+                            lastSelectedObject.transform.rotation = hitPose.rotation;
                         }
+                        
+                        
                     }
                 }
             }
