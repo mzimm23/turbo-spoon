@@ -16,7 +16,7 @@ public class PlaceOnPlaneV2 : MonoBehaviour
 
     private PlacementObject[] placedObjects;
 
-    private Vector2 touchPosition = default;
+    private Vector2 touchPosition, initialTouch = default;
 
     private ARRaycastManager arRaycastManager;
 
@@ -84,7 +84,7 @@ public class PlaceOnPlaneV2 : MonoBehaviour
         if (Input.touchCount > 0)
         {
             Touch touch = Input.GetTouch(0);
-            text.text = "Moved Position: " + touch.deltaPosition.magnitude.ToString();
+            text.text = "Moved Position: " + (touch.position - initialTouch);
             if (IsPointerOverUI(touch))
             {
                 return;
@@ -92,6 +92,7 @@ public class PlaceOnPlaneV2 : MonoBehaviour
             touchPosition = touch.position;
             if (touch.phase == TouchPhase.Began)
             {
+                initialTouch = touch.position;
                 UpdateLog("Touch Began");
 
                 if (lastSelectedObject.Locked == true)
