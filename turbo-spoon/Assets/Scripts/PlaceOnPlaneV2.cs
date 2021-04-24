@@ -63,7 +63,6 @@ public class PlaceOnPlaneV2 : MonoBehaviour
             if(previewObject.transform.childCount > 0)
             {
                 Destroy(previewObject.transform.GetChild(0).gameObject);
-
             }
             placedPrefab = loadedGameObject;
             lastSelectedObject = Instantiate(placedPrefab, camMiddlePose.position, camMiddlePose.rotation).GetComponent<PlacementObject>();
@@ -171,6 +170,10 @@ public class PlaceOnPlaneV2 : MonoBehaviour
                     {
                         lastSelectedObject.transform.position = hitPose.position;
                         lastSelectedObject.transform.rotation = hitPose.rotation;
+                        if (touch.deltaPosition.x > .5 || touch.deltaPosition.x > .5)
+                        {
+                            UpdateLog("NOT A TAP");
+                        }
                     }
                 }
             }
