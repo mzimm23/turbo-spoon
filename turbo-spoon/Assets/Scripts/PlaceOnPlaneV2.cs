@@ -89,6 +89,8 @@ public class PlaceOnPlaneV2 : MonoBehaviour
                 return;
             }
             touchPosition = touch.position;
+
+
             if (touch.phase == TouchPhase.Began)
             {
                 UpdateLog("Touch Began");
@@ -128,13 +130,15 @@ public class PlaceOnPlaneV2 : MonoBehaviour
                     
                 }
             }   
+
+
             if (touch.phase == TouchPhase.Ended)
             {
                 if (lastSelectedObject == hitObject.transform.GetComponent<PlacementObject>() && lastSelectedObject != null) // If you tap the selected objecct
                 {
-                    if (lastSelectedObject.Selected == true) // De-select
+                    if (lastSelectedObject.Locked == false) // De-select
                     {
-                        lastSelectedObject.Selected = false;
+                        //lastSelectedObject.Selected = false;
                         lastSelectedObject.Locked = true;
                         lastSelectedObject.ToggleSelectedIndicator();
                         UpdateLog("         Deselected: " + lastSelectedObject);
@@ -143,7 +147,7 @@ public class PlaceOnPlaneV2 : MonoBehaviour
                     }
                     else // Select
                     {
-                        lastSelectedObject.Selected = true;
+                        //lastSelectedObject.Selected = true;
                         lastSelectedObject.Locked = false;
                         lastSelectedObject.ToggleSelectedIndicator();
                         UpdateLog("         Re-Selected: " + lastSelectedObject);
