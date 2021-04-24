@@ -93,7 +93,7 @@ public class PlaceOnPlaneV2 : MonoBehaviour
             {
                 UpdateLog("Touch Began");
 
-                if (lastSelectedObject.Locked == true)
+                if (lastSelectedObject.transform.parent != null)
                 {
                     UpdateLog("Item Placed");
                     lastSelectedObject.transform.parent = null;
