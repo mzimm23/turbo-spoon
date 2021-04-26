@@ -141,7 +141,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsSelected: 0
-  IsLocked: 0
+  IsLocked: 1
   OverlayText: {fileID: 0}
   canvasComponent: {fileID: 0}
   OverlayDisplayText: 

@@ -56,7 +56,13 @@ public class PlaceOnPlaneV2 : MonoBehaviour
     public void ChangePrefabSelection(GameObject gameObject)
     {
         if (loadedGameObject == gameObject)
-            return;
+        {
+            if(lastSelectedObject.transform.parent != null)
+            {
+                UpdateLog("Object Already Selected");
+                return;
+            }
+        }
         loadedGameObject = gameObject;
         if (loadedGameObject != null)
         {
@@ -78,7 +84,6 @@ public class PlaceOnPlaneV2 : MonoBehaviour
     void Update()
     {
         CrosshairCalculation();
-        //text.text = "The current selected object is: " + lastSelectedObject;
 
 
         if (Input.touchCount > 0)
@@ -89,7 +94,6 @@ public class PlaceOnPlaneV2 : MonoBehaviour
                 return;
             }
             touchPosition = touch.position;
-
 
             if (touch.phase == TouchPhase.Began)
             {
@@ -130,7 +134,6 @@ public class PlaceOnPlaneV2 : MonoBehaviour
                     
                 }
             }   
-
 
             if (touch.phase == TouchPhase.Ended)
             {
