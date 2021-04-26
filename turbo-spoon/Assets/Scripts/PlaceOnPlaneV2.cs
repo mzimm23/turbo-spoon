@@ -12,6 +12,9 @@ public class PlaceOnPlaneV2 : MonoBehaviour
     private GameObject placedPrefab, previewObject, loadedGameObject, spawnedObject;
 
     [SerializeField]
+    PlacementObject empty;
+
+    [SerializeField]
     private Camera arCamera;
 
     private PlacementObject[] placedObjects;
@@ -66,7 +69,7 @@ public class PlaceOnPlaneV2 : MonoBehaviour
         loadedGameObject = gameObject;
         if (loadedGameObject != null)
         {
-            Debug.Log("Object is "+loadedGameObject.name);
+            UpdateLog("Object is "+loadedGameObject.name);
             if(previewObject.transform.childCount > 0)
             {
                 Destroy(previewObject.transform.GetChild(0).gameObject);
@@ -77,7 +80,7 @@ public class PlaceOnPlaneV2 : MonoBehaviour
         }
         else
         {
-            Debug.Log($"Unable to find a game object with name /" + gameObject.name);
+            UpdateLog($"Unable to find a game object with name /" + gameObject.name);
         }
     }
 
@@ -90,20 +93,22 @@ public class PlaceOnPlaneV2 : MonoBehaviour
         if (Input.touchCount > 0)
         {
             Touch touch = Input.GetTouch(0);
-            if (IsPointerOverUI(touch))
-            {
-                /*if (previewObject.transform.childCount > 0)
-                {
-                    Destroy(previewObject.transform.GetChild(0).gameObject);
-                }
-                */
-                UpdateLog("Touch is over UI");
-                return;
-            }
+            
             touchPosition = touch.position;
 
             if (touch.phase == TouchPhase.Began)
             {
+                if (IsPointerOverUI(touch))
+                {
+                    /*if (previewObject.transform.childCount > 0)
+                    {
+                        Destroy(previewObject.transform.GetChild(0).gameObject);
+                    }
+                    */
+                    previewObject.transform.GetChild(0).gameObject.SetActive(false);
+                    UpdateLog("Touch is over UI");
+                    return;
+                }
                 UpdateLog("Touch Began");
                 if (lastSelectedObject.transform.parent != null)
                 {
@@ -122,6 +127,7 @@ public class PlaceOnPlaneV2 : MonoBehaviour
                     if (hitObject.transform.GetComponent<PlacementObject>() == null)
                     {
                         UpdateLog("         DIDN'T HIT AN OBJECT");
+                        ChangeToEmpty();
                     }
                     lastSelectedObject = hitObject.transform.GetComponent<PlacementObject>();
                     if (lastSelectedObject != null)
@@ -213,8 +219,13 @@ public class PlaceOnPlaneV2 : MonoBehaviour
         {
             UpdateLog("     Deleted: " + lastSelectedObject.gameObject);
             Destroy(lastSelectedObject.gameObject);
-            //lastSelectedObject = null; this might break it
+            ChangeToEmpty();
         }
+    }
+
+    public void ChangeToEmpty()
+    {
+        lastSelectedObject = empty;
     }
 
     private RaycastHit hit;
