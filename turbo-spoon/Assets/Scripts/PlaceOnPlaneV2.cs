@@ -9,10 +9,7 @@ using UnityEngine.XR.ARFoundation;
 public class PlaceOnPlaneV2 : MonoBehaviour
 {
     [SerializeField]
-    private GameObject placedPrefab, previewObject, loadedGameObject, spawnedObject;
-
-    [SerializeField]
-    PlacementObject empty;
+    private GameObject placedPrefab, previewObject, loadedGameObject, spawnedObject, empty;
 
     [SerializeField]
     private Camera arCamera;
@@ -96,19 +93,19 @@ public class PlaceOnPlaneV2 : MonoBehaviour
             
             touchPosition = touch.position;
 
+            if (IsPointerOverUI(touch))
+            {
+                /*if (previewObject.transform.childCount > 0)
+                {
+                    Destroy(previewObject.transform.GetChild(0).gameObject);
+                }
+                */
+                return;
+            }
+
             if (touch.phase == TouchPhase.Began)
             {
-                if (IsPointerOverUI(touch))
-                {
-                    /*if (previewObject.transform.childCount > 0)
-                    {
-                        Destroy(previewObject.transform.GetChild(0).gameObject);
-                    }
-                    */
-                    previewObject.transform.GetChild(0).gameObject.SetActive(false);
-                    UpdateLog("Touch is over UI");
-                    return;
-                }
+                
                 UpdateLog("Touch Began");
                 if (lastSelectedObject.transform.parent != null)
                 {
@@ -127,7 +124,7 @@ public class PlaceOnPlaneV2 : MonoBehaviour
                     if (hitObject.transform.GetComponent<PlacementObject>() == null)
                     {
                         UpdateLog("         DIDN'T HIT AN OBJECT");
-                        ChangeToEmpty();
+                        ChangePrefabSelection(empty);
                     }
                     lastSelectedObject = hitObject.transform.GetComponent<PlacementObject>();
                     if (lastSelectedObject != null)
@@ -219,15 +216,11 @@ public class PlaceOnPlaneV2 : MonoBehaviour
         {
             UpdateLog("     Deleted: " + lastSelectedObject.gameObject);
             Destroy(lastSelectedObject.gameObject);
-            ChangeToEmpty();
+            ChangePrefabSelection(empty);
         }
     }
 
-    public void ChangeToEmpty()
-    {
-        lastSelectedObject = empty;
-    }
-
+    
     private RaycastHit hit;
     void CrosshairCalculation()
     {
