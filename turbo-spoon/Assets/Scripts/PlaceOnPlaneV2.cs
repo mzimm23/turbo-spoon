@@ -170,7 +170,7 @@ public class PlaceOnPlaneV2 : MonoBehaviour
                 {
                     if (lastSelectedObject.Locked == false)
                     {
-                        hasMoved = true;
+                        hasMoved = true; // Move this to TouchPhase.Moved (Outside of the locked and selected check) to only accept selection by tap (not drag)
                         lastSelectedObject.transform.position = hitPose.position;
                         lastSelectedObject.transform.rotation = hitPose.rotation;
                     }
