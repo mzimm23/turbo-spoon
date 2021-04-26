@@ -66,6 +66,7 @@ public class PlaceOnPlaneV2 : MonoBehaviour
         loadedGameObject = gameObject;
         if (loadedGameObject != null)
         {
+            Debug.Log("Object is "+loadedGameObject.name);
             if(previewObject.transform.childCount > 0)
             {
                 Destroy(previewObject.transform.GetChild(0).gameObject);
@@ -73,7 +74,6 @@ public class PlaceOnPlaneV2 : MonoBehaviour
             placedPrefab = loadedGameObject;
             lastSelectedObject = Instantiate(placedPrefab, camMiddlePose.position, camMiddlePose.rotation).GetComponent<PlacementObject>();
             lastSelectedObject.transform.parent = previewObject.transform;
-            Debug.Log("Changed to "+loadedGameObject.name);
         }
         else
         {
@@ -92,6 +92,10 @@ public class PlaceOnPlaneV2 : MonoBehaviour
             Touch touch = Input.GetTouch(0);
             if (IsPointerOverUI(touch))
             {
+                if (previewObject.transform.childCount > 0)
+                {
+                    Destroy(previewObject.transform.GetChild(0).gameObject);
+                }
                 return;
             }
             touchPosition = touch.position;
