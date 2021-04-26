@@ -73,6 +73,7 @@ public class PlaceOnPlaneV2 : MonoBehaviour
             placedPrefab = loadedGameObject;
             lastSelectedObject = Instantiate(placedPrefab, camMiddlePose.position, camMiddlePose.rotation).GetComponent<PlacementObject>();
             lastSelectedObject.transform.parent = previewObject.transform;
+            Debug.Log("Changed to "+loadedGameObject.name);
         }
         else
         {
@@ -136,7 +137,7 @@ public class PlaceOnPlaneV2 : MonoBehaviour
 
             if (touch.phase == TouchPhase.Ended)
             {
-                if (lastSelectedObject == hitObject.transform.GetComponent<PlacementObject>() && lastSelectedObject != null) // If you tap the selected objecct
+                if (lastSelectedObject == hitObject.transform.GetComponent<PlacementObject>() && hitObject.transform.GetComponent<PlacementObject>() != null) // If you tap an object
                 {
                     if(hasMoved == false)
                     {
@@ -196,7 +197,7 @@ public class PlaceOnPlaneV2 : MonoBehaviour
 
     public void DeleteSelected()
     {
-        if(lastSelectedObject.Selected) //If this doesnt work try changing the if to if(lastSelectedObject == defaultObject)
+        if(lastSelectedObject.Selected && !lastSelectedObject.Locked) //If this doesnt work try changing the if to if(lastSelectedObject == defaultObject)
         {
             UpdateLog("     Deleted: " + lastSelectedObject.gameObject);
             Destroy(lastSelectedObject.gameObject);
