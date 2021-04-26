@@ -97,6 +97,7 @@ public class PlaceOnPlaneV2 : MonoBehaviour
                     Destroy(previewObject.transform.GetChild(0).gameObject);
                 }
                 */
+                UpdateLog("Touch is over UI");
                 return;
             }
             touchPosition = touch.position;
@@ -212,7 +213,7 @@ public class PlaceOnPlaneV2 : MonoBehaviour
         {
             UpdateLog("     Deleted: " + lastSelectedObject.gameObject);
             Destroy(lastSelectedObject.gameObject);
-            lastSelectedObject = null;
+            //lastSelectedObject = null; this might break it
         }
     }
 
