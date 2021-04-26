@@ -98,7 +98,7 @@ public class PlaceOnPlaneV2 : MonoBehaviour
             if (touch.phase == TouchPhase.Began)
             {
                 UpdateLog("Touch Began");
-
+                hasMoved = false;
                 if (lastSelectedObject.transform.parent != null)
                 {
                     UpdateLog("Item Placed");
@@ -139,22 +139,25 @@ public class PlaceOnPlaneV2 : MonoBehaviour
             {
                 if (lastSelectedObject == hitObject.transform.GetComponent<PlacementObject>() && lastSelectedObject != null) // If you tap the selected objecct
                 {
-                    if (lastSelectedObject.Locked == false) // De-select
+                    if(hasMoved == false)
                     {
-                        //lastSelectedObject.Selected = false;
-                        lastSelectedObject.Locked = true;
-                        lastSelectedObject.ToggleSelectedIndicator();
-                        UpdateLog("         Deselected: " + lastSelectedObject);
-                        UpdateLog("         LastSelectedObject: " + lastSelectedObject.name.ToString());
-                        return;
-                    }
-                    else // Select
-                    {
-                        //lastSelectedObject.Selected = true;
-                        lastSelectedObject.Locked = false;
-                        lastSelectedObject.ToggleSelectedIndicator();
-                        UpdateLog("         Re-Selected: " + lastSelectedObject);
-                        return; // Not sure if this will work or break it
+                        if (lastSelectedObject.Locked == false) // De-select
+                        {
+                            //lastSelectedObject.Selected = false;
+                            lastSelectedObject.Locked = true;
+                            lastSelectedObject.ToggleSelectedIndicator();
+                            UpdateLog("         Deselected: " + lastSelectedObject);
+                            UpdateLog("         LastSelectedObject: " + lastSelectedObject.name.ToString());
+                            //return;
+                        }
+                        else // Select
+                        {
+                            //lastSelectedObject.Selected = true;
+                            lastSelectedObject.Locked = false;
+                            lastSelectedObject.ToggleSelectedIndicator();
+                            UpdateLog("         Re-Selected: " + lastSelectedObject);
+                            //return; // Not sure if this will work or break it
+                        }
                     }
                 }
                 UpdateLog("Touch Ended");
@@ -167,7 +170,7 @@ public class PlaceOnPlaneV2 : MonoBehaviour
                 {
                     if (lastSelectedObject.Locked == false)
                     {
-                        //hasMoved = true;
+                        hasMoved = true;
                         lastSelectedObject.transform.position = hitPose.position;
                         lastSelectedObject.transform.rotation = hitPose.rotation;
                     }
