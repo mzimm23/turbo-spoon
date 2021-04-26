@@ -92,10 +92,11 @@ public class PlaceOnPlaneV2 : MonoBehaviour
             Touch touch = Input.GetTouch(0);
             if (IsPointerOverUI(touch))
             {
-                if (previewObject.transform.childCount > 0)
+                /*if (previewObject.transform.childCount > 0)
                 {
                     Destroy(previewObject.transform.GetChild(0).gameObject);
                 }
+                */
                 return;
             }
             touchPosition = touch.position;
