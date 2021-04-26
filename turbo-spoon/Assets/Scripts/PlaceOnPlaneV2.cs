@@ -98,7 +98,6 @@ public class PlaceOnPlaneV2 : MonoBehaviour
             if (touch.phase == TouchPhase.Began)
             {
                 UpdateLog("Touch Began");
-                hasMoved = false;
                 if (lastSelectedObject.transform.parent != null)
                 {
                     UpdateLog("Item Placed");
@@ -161,6 +160,7 @@ public class PlaceOnPlaneV2 : MonoBehaviour
                     }
                 }
                 UpdateLog("Touch Ended");
+                hasMoved = false;
             }
 
             if (arRaycastManager.Raycast(touchPosition, hits, UnityEngine.XR.ARSubsystems.TrackableType.PlaneWithinPolygon))
