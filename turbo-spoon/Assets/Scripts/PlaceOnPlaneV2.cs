@@ -169,6 +169,11 @@ public class PlaceOnPlaneV2 : MonoBehaviour
                 hasMoved = false;
             }
 
+            if (touch.phase == TouchPhase.Canceled)
+            {
+                UpdateLog("Touch Cancelled");
+            }
+
             if (arRaycastManager.Raycast(touchPosition, hits, UnityEngine.XR.ARSubsystems.TrackableType.PlaneWithinPolygon))
             {
                 Pose hitPose = hits[0].pose;
@@ -183,6 +188,7 @@ public class PlaceOnPlaneV2 : MonoBehaviour
                 }
             }
         }
+        
     }
 
     [SerializeField] Text logText, text;
