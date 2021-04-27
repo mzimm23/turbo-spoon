@@ -55,6 +55,7 @@ public class PlaceOnPlaneV2 : MonoBehaviour
 
     public void ChangePrefabSelection(GameObject gameObject)
     {
+        UpdateLog("Changing...");
         if (loadedGameObject == gameObject)
         {
             if(lastSelectedObject.transform.parent != null)
@@ -220,7 +221,7 @@ public class PlaceOnPlaneV2 : MonoBehaviour
         }
     }
 
-    
+
     private RaycastHit hit;
     void CrosshairCalculation()
     {
