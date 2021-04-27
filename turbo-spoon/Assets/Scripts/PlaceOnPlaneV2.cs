@@ -103,7 +103,7 @@ public class PlaceOnPlaneV2 : MonoBehaviour
             {
                 
                 UpdateLog("Touch Began");
-                if (lastSelectedObject.transform.parent != null && lastSelectedObject.name != "empty") //Maybe change the empty part
+                if (lastSelectedObject.transform.parent != null && lastSelectedObject.name != "Empty") //Maybe change the empty part
                 {
                     UpdateLog("Item Placed");
                     lastSelectedObject.transform.parent = null;
