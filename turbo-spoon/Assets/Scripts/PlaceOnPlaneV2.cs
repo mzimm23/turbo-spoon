@@ -96,11 +96,6 @@ public class PlaceOnPlaneV2 : MonoBehaviour
 
             if (IsPointerOverUI(touch))
             {
-                /*if (previewObject.transform.childCount > 0)
-                {
-                    Destroy(previewObject.transform.GetChild(0).gameObject);
-                }
-                */
                 return;
             }
 
@@ -108,7 +103,7 @@ public class PlaceOnPlaneV2 : MonoBehaviour
             {
                 
                 UpdateLog("Touch Began");
-                if (lastSelectedObject.transform.parent != null)
+                if (lastSelectedObject.transform.parent != null && lastSelectedObject.name != "empty") //Maybe change the empty part
                 {
                     UpdateLog("Item Placed");
                     lastSelectedObject.transform.parent = null;
@@ -126,6 +121,7 @@ public class PlaceOnPlaneV2 : MonoBehaviour
                     {
                         UpdateLog("         DIDN'T HIT AN OBJECT");
                         ChangePrefabSelection(empty);
+                        return; //Added this, might break it
                     }
                     lastSelectedObject = hitObject.transform.GetComponent<PlacementObject>();
                     if (lastSelectedObject != null)
@@ -153,20 +149,16 @@ public class PlaceOnPlaneV2 : MonoBehaviour
                     {
                         if (lastSelectedObject.Locked == false) // De-select
                         {
-                            //lastSelectedObject.Selected = false;
                             lastSelectedObject.Locked = true;
                             lastSelectedObject.ToggleSelectedIndicator();
                             UpdateLog("         Deselected: " + lastSelectedObject);
                             UpdateLog("         LastSelectedObject: " + lastSelectedObject.name.ToString());
-                            //return;
                         }
                         else // Select
                         {
-                            //lastSelectedObject.Selected = true;
                             lastSelectedObject.Locked = false;
                             lastSelectedObject.ToggleSelectedIndicator();
                             UpdateLog("         Re-Selected: " + lastSelectedObject);
-                            //return; // Not sure if this will work or break it
                         }
                     }
                 }
