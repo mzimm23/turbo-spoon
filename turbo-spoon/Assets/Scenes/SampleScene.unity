@@ -709,7 +709,7 @@ RectTransform:
   m_GameObject: {fileID: 487137959}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.75, y: 0.75, z: 1}
   m_Children:
   - {fileID: 1265564212}
   m_Father: {fileID: 1226499382}
@@ -796,7 +796,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 2050e5acaa38c4043abaf0a33a0f05ff, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8fa19e3ba09c51a468902cc2c4c3a678, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -929,7 +929,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3faec608ba8ae2c4b9160b7126ed41ea, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 89f6cfae892c27f48bec17f818b5c10d, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -1423,21 +1423,9 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
       objectReference: {fileID: 1502755206}
-    - target: {fileID: 543366722055013124, guid: d0df8f60564303a47acc3574e29c2150, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.RectTransform, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 781705361653942865, guid: d0df8f60564303a47acc3574e29c2150, type: 3}
-      propertyPath: m_Name
-      value: Art of Forgetfulness
-      objectReference: {fileID: 0}
     - target: {fileID: 841398261575915042, guid: d0df8f60564303a47acc3574e29c2150, type: 3}
       propertyPath: m_Name
       value: MenuButtons
-      objectReference: {fileID: 0}
-    - target: {fileID: 841398261575915042, guid: d0df8f60564303a47acc3574e29c2150, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 841398261575915043, guid: d0df8f60564303a47acc3574e29c2150, type: 3}
       propertyPath: m_Pivot.x
@@ -1523,18 +1511,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1089589082198827758, guid: d0df8f60564303a47acc3574e29c2150, type: 3}
-      propertyPath: m_Name
-      value: Hermanus
-      objectReference: {fileID: 0}
-    - target: {fileID: 1186848479628376807, guid: d0df8f60564303a47acc3574e29c2150, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 057ae9e7ba4bc0249b0eb8bbc230f0c2, type: 3}
-    - target: {fileID: 1463020229708446134, guid: d0df8f60564303a47acc3574e29c2150, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 55c6422a58407424b800e3a3073794a5, type: 3}
     - target: {fileID: 1951053984096761935, guid: d0df8f60564303a47acc3574e29c2150, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1575,62 +1551,42 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
       objectReference: {fileID: 2067426940}
-    - target: {fileID: 4284738017074108716, guid: d0df8f60564303a47acc3574e29c2150, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.RectTransform, UnityEngine
+    - target: {fileID: 4360250746230095142, guid: d0df8f60564303a47acc3574e29c2150, type: 3}
+      propertyPath: m_FontData.m_MaxSize
+      value: 58
       objectReference: {fileID: 0}
     - target: {fileID: 4360250746230095142, guid: d0df8f60564303a47acc3574e29c2150, type: 3}
-      propertyPath: m_Text
-      value: Hermanus
+      propertyPath: m_FontData.m_FontSize
+      value: 58
       objectReference: {fileID: 0}
     - target: {fileID: 4700130246497371880, guid: d0df8f60564303a47acc3574e29c2150, type: 3}
-      propertyPath: m_Text
-      value: The Art of Forgetfulness
+      propertyPath: m_FontData.m_MaxSize
+      value: 58
       objectReference: {fileID: 0}
     - target: {fileID: 4700130246497371880, guid: d0df8f60564303a47acc3574e29c2150, type: 3}
-      propertyPath: m_FontData.m_BestFit
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4700130246497371880, guid: d0df8f60564303a47acc3574e29c2150, type: 3}
-      propertyPath: m_FontData.m_Alignment
-      value: 4
+      propertyPath: m_FontData.m_FontSize
+      value: 58
       objectReference: {fileID: 0}
     - target: {fileID: 4700130246497371880, guid: d0df8f60564303a47acc3574e29c2150, type: 3}
       propertyPath: m_FontData.m_FontStyle
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4700130246497371880, guid: d0df8f60564303a47acc3574e29c2150, type: 3}
-      propertyPath: m_FontData.m_VerticalOverflow
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4700130246497371880, guid: d0df8f60564303a47acc3574e29c2150, type: 3}
-      propertyPath: m_FontData.m_HorizontalOverflow
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6280955188576365991, guid: d0df8f60564303a47acc3574e29c2150, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 28c7c3edfd051904690468941f4b1e6b, type: 3}
     - target: {fileID: 6540687937086801302, guid: d0df8f60564303a47acc3574e29c2150, type: 3}
-      propertyPath: m_Text
-      value: Other Abstract
+      propertyPath: m_FontData.m_MaxSize
+      value: 58
+      objectReference: {fileID: 0}
+    - target: {fileID: 6540687937086801302, guid: d0df8f60564303a47acc3574e29c2150, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 58
       objectReference: {fileID: 0}
     - target: {fileID: 6687250872658305653, guid: d0df8f60564303a47acc3574e29c2150, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 572084761}
     - target: {fileID: 6687250872658305653, guid: d0df8f60564303a47acc3574e29c2150, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ChangeMenu
-      objectReference: {fileID: 0}
-    - target: {fileID: 6687250872658305653, guid: d0df8f60564303a47acc3574e29c2150, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
       objectReference: {fileID: 909571062636771065}
-    - target: {fileID: 6687250872658305653, guid: d0df8f60564303a47acc3574e29c2150, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.RectTransform, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 8134294490755021292, guid: d0df8f60564303a47acc3574e29c2150, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1729,7 +1685,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.49803925, g: 0.22352943, b: 0.11764707, a: 1}
+  m_Color: {r: 0.5660378, g: 0.25158456, b: 0.13029549, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
