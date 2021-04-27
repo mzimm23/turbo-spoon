@@ -948,7 +948,7 @@ MonoBehaviour:
   previewObject: {fileID: 187462112}
   loadedGameObject: {fileID: 0}
   spawnedObject: {fileID: 0}
-  empty: {fileID: -361021028413401869, guid: acc298d4ca1c5f046a8173f3b58b6527, type: 3}
+  empty: {fileID: 3202241169458714187, guid: acc298d4ca1c5f046a8173f3b58b6527, type: 3}
   arCamera: {fileID: 325516472}
   logText: {fileID: 1831818120}
   text: {fileID: 328967856}
