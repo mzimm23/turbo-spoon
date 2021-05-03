@@ -16,6 +16,8 @@ public class PlaceOnPlaneV2 : MonoBehaviour
 
     private PlacementObject[] placedObjects;
 
+    public ARPlaneManager planeManager;
+
     private Vector2 touchPosition, initialTouch = default;
 
     private ARRaycastManager arRaycastManager;
@@ -50,6 +52,7 @@ public class PlaceOnPlaneV2 : MonoBehaviour
     void Awake()
     {
         arRaycastManager = GetComponent<ARRaycastManager>();
+        planeManager = FindObjectOfType<ARPlaneManager>();
 
     }
 
@@ -67,6 +70,10 @@ public class PlaceOnPlaneV2 : MonoBehaviour
         loadedGameObject = gameObject;
         if (loadedGameObject != null)
         {
+            if (planeManager.trackables.count == 0) //Testing if no planes do nothing
+            {
+                return;
+            }
             UpdateLog("Object is "+loadedGameObject.name);
             if(previewObject.transform.childCount > 0)
             {
@@ -217,6 +224,7 @@ public class PlaceOnPlaneV2 : MonoBehaviour
     private RaycastHit hit;
     void CrosshairCalculation()
     {
+
         Vector3 origin = arCamera.ViewportToScreenPoint(new Vector3(0.5f, 0.5f, 0));
         Ray ray = arCamera.ScreenPointToRay(origin);
 
