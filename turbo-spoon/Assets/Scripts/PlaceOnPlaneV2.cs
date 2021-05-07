@@ -16,7 +16,7 @@ public class PlaceOnPlaneV2 : MonoBehaviour
 
     private PlacementObject[] placedObjects;
 
-    public ARPlaneManager planeManager;
+    //public ARPlaneManager planeManager;
 
     private Vector2 touchPosition, initialTouch = default;
 
