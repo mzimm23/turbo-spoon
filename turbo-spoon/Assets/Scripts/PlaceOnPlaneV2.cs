@@ -52,7 +52,7 @@ public class PlaceOnPlaneV2 : MonoBehaviour
     void Awake()
     {
         arRaycastManager = GetComponent<ARRaycastManager>();
-        planeManager = FindObjectOfType<ARPlaneManager>();
+        //planeManager = FindObjectOfType<ARPlaneManager>();
 
     }
 
@@ -70,10 +70,12 @@ public class PlaceOnPlaneV2 : MonoBehaviour
         loadedGameObject = gameObject;
         if (loadedGameObject != null)
         {
+            /*
             if (planeManager.trackables.count == 0) //Testing if no planes do nothing
             {
                 return;
             }
+            */
             UpdateLog("Object is "+loadedGameObject.name);
             if(previewObject.transform.childCount > 0)
             {
